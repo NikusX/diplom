@@ -39,19 +39,17 @@
             this.adressLabel = new System.Windows.Forms.Label();
             this.adressTextbox = new System.Windows.Forms.TextBox();
             this.regButton = new System.Windows.Forms.Button();
+            this.passwordRepeatLabel = new System.Windows.Forms.Label();
+            this.passwordRepeatTextbox = new System.Windows.Forms.TextBox();
+            this.PasswordShowCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // loginTextbox
             // 
             this.loginTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.loginTextbox.Location = new System.Drawing.Point(151, 19);
-            this.loginTextbox.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.loginTextbox.Location = new System.Drawing.Point(114, 14);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.loginTextbox.Location = new System.Drawing.Point(44, 40);
             this.loginTextbox.Name = "loginTextbox";
-            this.loginTextbox.Size = new System.Drawing.Size(295, 30);
+            this.loginTextbox.Size = new System.Drawing.Size(323, 26);
             this.loginTextbox.TabIndex = 0;
             this.loginTextbox.Tag = "";
             // 
@@ -59,14 +57,9 @@
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.loginLabel.Location = new System.Drawing.Point(53, 22);
-            this.loginLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.loginLabel.Location = new System.Drawing.Point(41, 17);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.loginLabel.Location = new System.Drawing.Point(40, 17);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(68, 25);
+            this.loginLabel.Size = new System.Drawing.Size(55, 20);
             this.loginLabel.TabIndex = 1;
             this.loginLabel.Text = "Логин";
             // 
@@ -74,28 +67,19 @@
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.passwordLabel.Location = new System.Drawing.Point(53, 62);
-            this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.passwordLabel.Location = new System.Drawing.Point(41, 49);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.passwordLabel.Location = new System.Drawing.Point(40, 69);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(80, 25);
+            this.passwordLabel.Size = new System.Drawing.Size(67, 20);
             this.passwordLabel.TabIndex = 3;
             this.passwordLabel.Text = "Пароль";
             // 
             // passwordTextbox
             // 
             this.passwordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.passwordTextbox.Location = new System.Drawing.Point(151, 58);
-            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.passwordTextbox.Location = new System.Drawing.Point(114, 46);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.passwordTextbox.Location = new System.Drawing.Point(44, 92);
             this.passwordTextbox.Name = "passwordTextbox";
-            this.passwordTextbox.Size = new System.Drawing.Size(295, 30);
+            this.passwordTextbox.PasswordChar = '•';
+            this.passwordTextbox.Size = new System.Drawing.Size(323, 26);
             this.passwordTextbox.TabIndex = 2;
             this.passwordTextbox.Tag = "";
             // 
@@ -103,28 +87,18 @@
             // 
             this.fioLabel.AutoSize = true;
             this.fioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.fioLabel.Location = new System.Drawing.Point(53, 101);
-            this.fioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.fioLabel.Location = new System.Drawing.Point(41, 81);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.fioLabel.Location = new System.Drawing.Point(40, 203);
             this.fioLabel.Name = "fioLabel";
-            this.fioLabel.Size = new System.Drawing.Size(60, 25);
+            this.fioLabel.Size = new System.Drawing.Size(47, 20);
             this.fioLabel.TabIndex = 5;
             this.fioLabel.Text = "ФИО";
             // 
             // fioTextbox
             // 
             this.fioTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.fioTextbox.Location = new System.Drawing.Point(151, 98);
-            this.fioTextbox.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.fioTextbox.Location = new System.Drawing.Point(114, 78);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.fioTextbox.Location = new System.Drawing.Point(44, 226);
             this.fioTextbox.Name = "fioTextbox";
-            this.fioTextbox.Size = new System.Drawing.Size(295, 30);
+            this.fioTextbox.Size = new System.Drawing.Size(323, 26);
             this.fioTextbox.TabIndex = 4;
             this.fioTextbox.Tag = "";
             // 
@@ -132,14 +106,9 @@
             // 
             this.birthdateLabel.AutoSize = true;
             this.birthdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.birthdateLabel.Location = new System.Drawing.Point(53, 143);
-            this.birthdateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.birthdateLabel.Location = new System.Drawing.Point(41, 115);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.birthdateLabel.Location = new System.Drawing.Point(40, 255);
             this.birthdateLabel.Name = "birthdateLabel";
-            this.birthdateLabel.Size = new System.Drawing.Size(161, 25);
+            this.birthdateLabel.Size = new System.Drawing.Size(128, 20);
             this.birthdateLabel.TabIndex = 6;
             this.birthdateLabel.Text = "Дата рождения";
             // 
@@ -147,75 +116,83 @@
             // 
             this.birthdateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.birthdateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-<<<<<<< HEAD
-            this.birthdateDateTimePicker.Location = new System.Drawing.Point(232, 137);
-            this.birthdateDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.birthdateDateTimePicker.Location = new System.Drawing.Point(175, 110);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.birthdateDateTimePicker.Location = new System.Drawing.Point(44, 278);
             this.birthdateDateTimePicker.Name = "birthdateDateTimePicker";
-            this.birthdateDateTimePicker.Size = new System.Drawing.Size(213, 30);
+            this.birthdateDateTimePicker.Size = new System.Drawing.Size(161, 26);
             this.birthdateDateTimePicker.TabIndex = 7;
             // 
             // adressLabel
             // 
             this.adressLabel.AutoSize = true;
             this.adressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.adressLabel.Location = new System.Drawing.Point(53, 180);
-            this.adressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.adressLabel.Location = new System.Drawing.Point(41, 145);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.adressLabel.Location = new System.Drawing.Point(40, 307);
             this.adressLabel.Name = "adressLabel";
-            this.adressLabel.Size = new System.Drawing.Size(69, 25);
+            this.adressLabel.Size = new System.Drawing.Size(57, 20);
             this.adressLabel.TabIndex = 9;
             this.adressLabel.Text = "Адрес";
             // 
             // adressTextbox
             // 
             this.adressTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.adressTextbox.Location = new System.Drawing.Point(151, 176);
-            this.adressTextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.adressTextbox.Location = new System.Drawing.Point(44, 330);
             this.adressTextbox.Multiline = true;
             this.adressTextbox.Name = "adressTextbox";
-            this.adressTextbox.Size = new System.Drawing.Size(295, 80);
-=======
-            this.adressTextbox.Location = new System.Drawing.Point(114, 142);
-            this.adressTextbox.Multiline = true;
-            this.adressTextbox.Name = "adressTextbox";
-            this.adressTextbox.Size = new System.Drawing.Size(222, 66);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.adressTextbox.Size = new System.Drawing.Size(323, 65);
             this.adressTextbox.TabIndex = 8;
             this.adressTextbox.Tag = "";
             // 
             // regButton
             // 
             this.regButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-<<<<<<< HEAD
-            this.regButton.Location = new System.Drawing.Point(58, 275);
+            this.regButton.Location = new System.Drawing.Point(44, 400);
+            this.regButton.Margin = new System.Windows.Forms.Padding(2);
             this.regButton.Name = "regButton";
-            this.regButton.Size = new System.Drawing.Size(388, 45);
-=======
-            this.regButton.Location = new System.Drawing.Point(45, 214);
-            this.regButton.Name = "regButton";
-            this.regButton.Size = new System.Drawing.Size(291, 33);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.regButton.Size = new System.Drawing.Size(323, 35);
             this.regButton.TabIndex = 10;
-            this.regButton.Text = "Регистрация";
+            this.regButton.Text = "Зарегистрироваться";
             this.regButton.UseVisualStyleBackColor = true;
             this.regButton.Click += new System.EventHandler(this.regButton_Click);
             // 
+            // passwordRepeatLabel
+            // 
+            this.passwordRepeatLabel.AutoSize = true;
+            this.passwordRepeatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordRepeatLabel.Location = new System.Drawing.Point(40, 121);
+            this.passwordRepeatLabel.Name = "passwordRepeatLabel";
+            this.passwordRepeatLabel.Size = new System.Drawing.Size(152, 20);
+            this.passwordRepeatLabel.TabIndex = 12;
+            this.passwordRepeatLabel.Text = "Повторите пароль";
+            // 
+            // passwordRepeatTextbox
+            // 
+            this.passwordRepeatTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordRepeatTextbox.Location = new System.Drawing.Point(44, 144);
+            this.passwordRepeatTextbox.Name = "passwordRepeatTextbox";
+            this.passwordRepeatTextbox.PasswordChar = '•';
+            this.passwordRepeatTextbox.Size = new System.Drawing.Size(323, 26);
+            this.passwordRepeatTextbox.TabIndex = 11;
+            this.passwordRepeatTextbox.Tag = "";
+            // 
+            // PasswordShowCheckbox
+            // 
+            this.PasswordShowCheckbox.AutoSize = true;
+            this.PasswordShowCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PasswordShowCheckbox.Location = new System.Drawing.Point(47, 173);
+            this.PasswordShowCheckbox.Name = "PasswordShowCheckbox";
+            this.PasswordShowCheckbox.Size = new System.Drawing.Size(160, 24);
+            this.PasswordShowCheckbox.TabIndex = 13;
+            this.PasswordShowCheckbox.Text = "Показать пароль";
+            this.PasswordShowCheckbox.UseVisualStyleBackColor = true;
+            this.PasswordShowCheckbox.CheckedChanged += new System.EventHandler(this.PasswordShowCheckbox_CheckedChanged);
+            // 
             // regForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(513, 333);
-=======
-            this.ClientSize = new System.Drawing.Size(385, 256);
->>>>>>> a24c158fbd0026e3834eb745a5128066c91bb36f
+            this.ClientSize = new System.Drawing.Size(408, 446);
+            this.Controls.Add(this.PasswordShowCheckbox);
+            this.Controls.Add(this.passwordRepeatLabel);
+            this.Controls.Add(this.passwordRepeatTextbox);
             this.Controls.Add(this.regButton);
             this.Controls.Add(this.adressLabel);
             this.Controls.Add(this.adressTextbox);
@@ -227,7 +204,6 @@
             this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.loginTextbox);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "regForm";
             this.Text = "Регистрация";
             this.ResumeLayout(false);
@@ -248,5 +224,8 @@
         private System.Windows.Forms.Label adressLabel;
         private System.Windows.Forms.TextBox adressTextbox;
         private System.Windows.Forms.Button regButton;
+        private System.Windows.Forms.Label passwordRepeatLabel;
+        private System.Windows.Forms.TextBox passwordRepeatTextbox;
+        private System.Windows.Forms.CheckBox PasswordShowCheckbox;
     }
 }

@@ -27,17 +27,22 @@ namespace boxOffice
             {
                 OleDbConnection con = staticVariables.con;
                 con.Open();
-                OleDbCommand cmd = new OleDbCommand("select [id пользователя], Логин, Пароль, Роль from Пользователь where Логин=:login and Пароль=:password", con);
+                OleDbCommand cmd = new OleDbCommand("select [id пользователя], ФИО, [Дата рождения], Логин, Пароль, Адрес, [Персональная скидка (%)], Роль from Пользователь where Логин=:login and Пароль=:password", con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add("login", OleDbType.VarChar).Value = login;
                 cmd.Parameters.Add("password", OleDbType.VarChar).Value = password;
                 OleDbDataReader reader = cmd.ExecuteReader();
                 if(reader.Read())
                 {
-                    if(reader.GetString(1) == login && reader.GetString(2) == password) // проверяется соответствие логина и пароля
+                    if(reader.GetString(3) == login && reader.GetString(4) == password) // проверяется соответствие логина и пароля
                     {
-                        staticVariables.userRole = reader.GetString(3);
                         staticVariables.userId = reader.GetInt32(0);
+                        staticVariables.userFio = reader.GetString(1);
+                        staticVariables.userBirthDate = reader.GetDateTime(2);
+                        staticVariables.userLogin = reader.GetString(3);
+                        staticVariables.userAdress = reader.GetString(5);
+                        staticVariables.userDiscount = reader.GetInt32(6);
+                        staticVariables.userRole = reader.GetString(7);
                         MessageBox.Show("Вход успешно выполнен!");
                         reader.Close();
                         con.Close();
@@ -62,18 +67,19 @@ namespace boxOffice
             {
                 case "Заказчик":
                     buyerForm buyerForm1 = new buyerForm();
-                    staticVariables.addToList(buyerForm1);
-                    buyerForm1.Show();
+                    buyerForm1.ShowDialog();
                     break;
                 case "Менеджер по продаже":
                     salesManagerForm salesManagerForm1 = new salesManagerForm();
-                    staticVariables.addToList(salesManagerForm1);
-                    salesManagerForm1.Show();
+                    salesManagerForm1.ShowDialog();
                     break;
                 case "Директор":
                     directorForm directorForm1 = new directorForm();
-                    staticVariables.addToList(directorForm1);
-                    directorForm1.Show();
+                    directorForm1.ShowDialog();
+                    break;
+                case "Техник":
+                    technicianForm technicianForm1 = new technicianForm();
+                    technicianForm1.ShowDialog();
                     break;
             }
         }
@@ -86,7 +92,7 @@ namespace boxOffice
         private void regButton_Click(object sender, EventArgs e)
         {
             regForm regForm1 = new regForm();
-            regForm1.Show();
+            regForm1.ShowDialog();
         }
     }
 }

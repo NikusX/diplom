@@ -1,6 +1,6 @@
 ﻿namespace boxOffice
 {
-    partial class Template
+    partial class technicianForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Template));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(technicianForm));
             this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exitButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.White;
             this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
             this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitButton.Location = new System.Drawing.Point(4, 4);
+            this.exitButton.Location = new System.Drawing.Point(12, 12);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(44, 55);
-            this.exitButton.TabIndex = 0;
-            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Size = new System.Drawing.Size(42, 57);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // Template
+            // technician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 388);
             this.Controls.Add(this.exitButton);
-            this.Name = "Template";
-            this.Text = "Template";
-            this.Load += new System.EventHandler(this.Template_Load);
+            this.Name = "technician";
+            this.Text = "technician";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.technician_FormClosed);
+            this.Load += new System.EventHandler(this.technician_Load);
             this.ResumeLayout(false);
 
         }

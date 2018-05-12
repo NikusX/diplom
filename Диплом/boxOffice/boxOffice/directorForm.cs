@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace boxOffice
 {
-    public partial class directorForm : Template
+    public partial class directorForm : Form
     {
         public directorForm()
         {
@@ -20,6 +20,17 @@ namespace boxOffice
         private void directorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             staticVariables.mainForm.Show();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void directorForm_Load(object sender, EventArgs e)
+        {
+            ToolTip tooltip = new ToolTip();
+            tooltip.SetToolTip(exitButton, "Выйти из системы");
         }
     }
 }
