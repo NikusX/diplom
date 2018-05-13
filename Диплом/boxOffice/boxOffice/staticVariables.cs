@@ -14,12 +14,6 @@ namespace boxOffice
 
         public static int userId;
         public static string userFio = "";
-        public static DateTime userBirthDate;
-        public static string userLogin = "";
-        public static string userAdress = "";
-        public static int userDiscount;
-        public static string userRole = "";
-        
-        public static loginForm mainForm;
+        public static string userLogin = "";      
     }
 }

@@ -17,15 +17,11 @@ C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\De
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOffice.exe
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOffice.pdb
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.csprojResolveAssemblyReference.cache
-C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.buyerForm.resources
-C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.directorForm.resources
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.loginForm.resources
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.Properties.Resources.resources
-C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.regForm.resources
-C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.salesManagerForm.resources
-C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.Template.resources
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.csproj.GenerateResource.Cache
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.exe
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.pdb
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.technicianForm.resources
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.userProfileForm.resources
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.mainForm.resources

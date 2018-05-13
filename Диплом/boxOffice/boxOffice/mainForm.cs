@@ -10,22 +10,16 @@ using System.Windows.Forms;
 
 namespace boxOffice
 {
-    public partial class salesManagerForm : Form
+    public partial class mainForm : Form
     {
-        public salesManagerForm()
+        public mainForm()
         {
             InitializeComponent();
         }
 
-        private void salesManagerForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            staticVariables.mainForm.Show();
-        }
-
-        private void salesManagerForm_Load(object sender, EventArgs e)
-        {
-            ToolTip tooltip = new ToolTip();
-            tooltip.SetToolTip(exitButton, "Выйти из системы");
+            Application.Exit();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
