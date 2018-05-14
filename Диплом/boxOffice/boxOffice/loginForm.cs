@@ -23,9 +23,9 @@ namespace boxOffice
             string login = loginTextbox.Text;
             login = login.Trim();
             string password = passwordTextbox.Text;
+            OleDbConnection con = staticVariables.con;
             try
             {
-                OleDbConnection con = staticVariables.con;
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand("select [id пользователя], ФИО, Логин, Пароль from Пользователь where Логин=:login and Пароль=:password", con);
                 cmd.Parameters.Add("login", OleDbType.VarChar).Value = login;
@@ -48,13 +48,15 @@ namespace boxOffice
                     MessageBox.Show("Логин или пароль введены неверно. Проверьте правильность ввода данных.");
                     reader.Close();
                     con.Close();
+                    return;
                 }
             }
             catch
             {
                 MessageBox.Show("Логин или пароль введены неверно. Проверьте правильность ввода данных.");
+                con.Close();
+                return;
             }
-
             mainForm mainForm1 = new mainForm();
             mainForm1.Show();
         }

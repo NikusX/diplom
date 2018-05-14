@@ -17,6 +17,12 @@ namespace boxOffice
             InitializeComponent();
         }
 
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+            Bitmap theatreLogo = new Bitmap(@"../../resources/logo.png");
+            theatreLogoPB.Image = theatreLogo;
+        }
+
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -25,6 +31,12 @@ namespace boxOffice
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void repertoireButton_Click(object sender, EventArgs e)
+        {
+            repertoireForm repertoireForm1 = new repertoireForm();
+            repertoireForm1.ShowDialog();
         }
     }
 }

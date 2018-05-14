@@ -8,10 +8,6 @@ C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.csproj.GenerateResource.Cache
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.exe
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.pdb
-C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.salesManagerForm.resources
-C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.regForm.resources
-C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.buyerForm.resources
-C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.directorForm.resources
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDB.mdb
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOffice.exe.config
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOffice.exe
@@ -22,6 +18,6 @@ C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\De
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.csproj.GenerateResource.Cache
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.exe
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.pdb
-C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.technicianForm.resources
-C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.userProfileForm.resources
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.mainForm.resources
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.mainForm.resources
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.repertoireForm.resources
