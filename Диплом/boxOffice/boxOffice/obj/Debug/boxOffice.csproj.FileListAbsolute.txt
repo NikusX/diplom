@@ -21,3 +21,8 @@ C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\De
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.mainForm.resources
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.mainForm.resources
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.repertoireForm.resources
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.repertoireForm.resources
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.Designer.cs
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsc
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsd
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xss

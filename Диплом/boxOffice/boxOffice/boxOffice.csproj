@@ -49,6 +49,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>boxOfficeDBDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
@@ -70,6 +71,12 @@
     <Compile Include="repertoireForm.Designer.cs">
       <DependentUpon>repertoireForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="scheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="scheduleForm.Designer.cs">
+      <DependentUpon>scheduleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="staticVariables.cs" />
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
@@ -89,16 +96,22 @@
     <EmbeddedResource Include="repertoireForm.resx">
       <DependentUpon>repertoireForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="scheduleForm.resx">
+      <DependentUpon>scheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="boxOfficeDBDataSet.xsc">
       <DependentUpon>boxOfficeDBDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="boxOfficeDBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>boxOfficeDBDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="boxOfficeDBDataSet.xss">
       <DependentUpon>boxOfficeDBDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
