@@ -26,3 +26,4 @@ C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\De
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsc
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsd
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xss
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.scheduleForm.resources
