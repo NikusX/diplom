@@ -41,10 +41,10 @@
             // 
             this.repertoireButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.repertoireButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.repertoireButton.Location = new System.Drawing.Point(9, 190);
-            this.repertoireButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.repertoireButton.Location = new System.Drawing.Point(12, 234);
+            this.repertoireButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.repertoireButton.Name = "repertoireButton";
-            this.repertoireButton.Size = new System.Drawing.Size(370, 46);
+            this.repertoireButton.Size = new System.Drawing.Size(493, 57);
             this.repertoireButton.TabIndex = 0;
             this.repertoireButton.Text = "Репертуар";
             this.repertoireButton.UseVisualStyleBackColor = false;
@@ -54,22 +54,23 @@
             // 
             this.scheduleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.scheduleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.scheduleButton.Location = new System.Drawing.Point(9, 240);
-            this.scheduleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scheduleButton.Location = new System.Drawing.Point(12, 295);
+            this.scheduleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scheduleButton.Name = "scheduleButton";
-            this.scheduleButton.Size = new System.Drawing.Size(370, 46);
+            this.scheduleButton.Size = new System.Drawing.Size(493, 57);
             this.scheduleButton.TabIndex = 1;
             this.scheduleButton.Text = "Расписание";
             this.scheduleButton.UseVisualStyleBackColor = false;
+            this.scheduleButton.Click += new System.EventHandler(this.scheduleButton_Click);
             // 
             // theatresButton
             // 
             this.theatresButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.theatresButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.theatresButton.Location = new System.Drawing.Point(9, 291);
-            this.theatresButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.theatresButton.Location = new System.Drawing.Point(12, 358);
+            this.theatresButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.theatresButton.Name = "theatresButton";
-            this.theatresButton.Size = new System.Drawing.Size(370, 46);
+            this.theatresButton.Size = new System.Drawing.Size(493, 57);
             this.theatresButton.TabIndex = 2;
             this.theatresButton.Text = "Театры";
             this.theatresButton.UseVisualStyleBackColor = false;
@@ -78,10 +79,10 @@
             // 
             this.ordersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.ordersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ordersButton.Location = new System.Drawing.Point(9, 341);
-            this.ordersButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ordersButton.Location = new System.Drawing.Point(12, 420);
+            this.ordersButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ordersButton.Name = "ordersButton";
-            this.ordersButton.Size = new System.Drawing.Size(370, 46);
+            this.ordersButton.Size = new System.Drawing.Size(493, 57);
             this.ordersButton.TabIndex = 3;
             this.ordersButton.Text = "Заказы";
             this.ordersButton.UseVisualStyleBackColor = false;
@@ -90,10 +91,10 @@
             // 
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exitButton.Location = new System.Drawing.Point(9, 392);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Location = new System.Drawing.Point(12, 482);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(370, 46);
+            this.exitButton.Size = new System.Drawing.Size(493, 57);
             this.exitButton.TabIndex = 4;
             this.exitButton.Text = "Выход";
             this.exitButton.UseVisualStyleBackColor = false;
@@ -101,26 +102,27 @@
             // 
             // theatreLogoPB
             // 
-            this.theatreLogoPB.Location = new System.Drawing.Point(9, 10);
-            this.theatreLogoPB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.theatreLogoPB.Location = new System.Drawing.Point(12, 12);
+            this.theatreLogoPB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.theatreLogoPB.Name = "theatreLogoPB";
-            this.theatreLogoPB.Size = new System.Drawing.Size(370, 162);
+            this.theatreLogoPB.Size = new System.Drawing.Size(493, 199);
             this.theatreLogoPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.theatreLogoPB.TabIndex = 5;
             this.theatreLogoPB.TabStop = false;
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(390, 448);
+            this.ClientSize = new System.Drawing.Size(520, 551);
             this.Controls.Add(this.theatreLogoPB);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.theatresButton);
             this.Controls.Add(this.scheduleButton);
             this.Controls.Add(this.repertoireButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "mainForm";
             this.Text = "Театральная касса";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainForm_FormClosed);

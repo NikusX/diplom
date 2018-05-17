@@ -38,5 +38,11 @@ namespace boxOffice
             repertoireForm repertoireForm1 = new repertoireForm();
             repertoireForm1.ShowDialog();
         }
+
+        private void scheduleButton_Click(object sender, EventArgs e)
+        {
+            scheduleForm scheduleForm1 = new scheduleForm();
+            scheduleForm1.ShowDialog();
+        }
     }
 }

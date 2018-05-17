@@ -97,6 +97,8 @@ namespace boxOffice
         private void submitButton_Click(object sender, EventArgs e)
         {
             OleDbConnection con = staticVariables.con;
+            int currentCellColumn = repertoireDataGridView.CurrentCell.ColumnIndex;
+            int currentCellRow = repertoireDataGridView.CurrentCell.RowIndex;
             int perfomanceID = Convert.ToInt32(repertoireDataGridView[0, repertoireDataGridView.CurrentRow.Index].Value);
             if (submitButton.Text == "Добавить")
             {
@@ -167,6 +169,7 @@ namespace boxOffice
                     con.Close();
                 }
             }
+            repertoireDataGridView.CurrentCell = repertoireDataGridView[currentCellColumn, currentCellRow];
         }
 
         private void editButton_Click(object sender, EventArgs e)

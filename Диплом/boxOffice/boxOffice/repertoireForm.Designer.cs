@@ -30,6 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.repertoireDataGridView = new System.Windows.Forms.DataGridView();
+            this.idСпектакляDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idТеатраDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеСпектакляDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.авторПроизведенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.жанрПроизведенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.режиссерпостановщикDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.художникпостановщикDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.возрастноеОграничениеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.описаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.репертуарBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boxOfficeDBDataSet = new boxOffice.boxOfficeDBDataSet();
             this.addPerfomanceButton = new System.Windows.Forms.Button();
             this.repertoirePanel = new System.Windows.Forms.Panel();
             this.descriptionTextbox = new System.Windows.Forms.TextBox();
@@ -54,24 +66,12 @@
             this.headerLabel = new System.Windows.Forms.Label();
             this.theatreLabel = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
-            this.idСпектакляDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idТеатраDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.названиеСпектакляDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.авторПроизведенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.жанрПроизведенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.режиссерпостановщикDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.художникпостановщикDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.возрастноеОграничениеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.описаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.репертуарBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.boxOfficeDBDataSet = new boxOffice.boxOfficeDBDataSet();
             this.репертуарTableAdapter = new boxOffice.boxOfficeDBDataSetTableAdapters.РепертуарTableAdapter();
             this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.repertoireDataGridView)).BeginInit();
-            this.repertoirePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.репертуарBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxOfficeDBDataSet)).BeginInit();
+            this.repertoirePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // repertoireDataGridView
@@ -97,8 +97,88 @@
             this.repertoireDataGridView.Name = "repertoireDataGridView";
             this.repertoireDataGridView.ReadOnly = true;
             this.repertoireDataGridView.RowTemplate.Height = 24;
-            this.repertoireDataGridView.Size = new System.Drawing.Size(1056, 265);
+            this.repertoireDataGridView.Size = new System.Drawing.Size(1308, 265);
             this.repertoireDataGridView.TabIndex = 0;
+            // 
+            // idСпектакляDataGridViewTextBoxColumn
+            // 
+            this.idСпектакляDataGridViewTextBoxColumn.DataPropertyName = "id спектакля";
+            this.idСпектакляDataGridViewTextBoxColumn.HeaderText = "id спектакля";
+            this.idСпектакляDataGridViewTextBoxColumn.Name = "idСпектакляDataGridViewTextBoxColumn";
+            this.idСпектакляDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idТеатраDataGridViewTextBoxColumn
+            // 
+            this.idТеатраDataGridViewTextBoxColumn.DataPropertyName = "id театра";
+            this.idТеатраDataGridViewTextBoxColumn.HeaderText = "id театра";
+            this.idТеатраDataGridViewTextBoxColumn.Name = "idТеатраDataGridViewTextBoxColumn";
+            this.idТеатраDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // названиеСпектакляDataGridViewTextBoxColumn
+            // 
+            this.названиеСпектакляDataGridViewTextBoxColumn.DataPropertyName = "Название спектакля";
+            this.названиеСпектакляDataGridViewTextBoxColumn.HeaderText = "Название спектакля";
+            this.названиеСпектакляDataGridViewTextBoxColumn.Name = "названиеСпектакляDataGridViewTextBoxColumn";
+            this.названиеСпектакляDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // авторПроизведенияDataGridViewTextBoxColumn
+            // 
+            this.авторПроизведенияDataGridViewTextBoxColumn.DataPropertyName = "Автор произведения";
+            this.авторПроизведенияDataGridViewTextBoxColumn.HeaderText = "Автор произведения";
+            this.авторПроизведенияDataGridViewTextBoxColumn.Name = "авторПроизведенияDataGridViewTextBoxColumn";
+            this.авторПроизведенияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // жанрПроизведенияDataGridViewTextBoxColumn
+            // 
+            this.жанрПроизведенияDataGridViewTextBoxColumn.DataPropertyName = "Жанр произведения";
+            this.жанрПроизведенияDataGridViewTextBoxColumn.HeaderText = "Жанр произведения";
+            this.жанрПроизведенияDataGridViewTextBoxColumn.Name = "жанрПроизведенияDataGridViewTextBoxColumn";
+            this.жанрПроизведенияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // режиссерпостановщикDataGridViewTextBoxColumn
+            // 
+            this.режиссерпостановщикDataGridViewTextBoxColumn.DataPropertyName = "Режиссер-постановщик";
+            this.режиссерпостановщикDataGridViewTextBoxColumn.HeaderText = "Режиссер-постановщик";
+            this.режиссерпостановщикDataGridViewTextBoxColumn.Name = "режиссерпостановщикDataGridViewTextBoxColumn";
+            this.режиссерпостановщикDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // художникпостановщикDataGridViewTextBoxColumn
+            // 
+            this.художникпостановщикDataGridViewTextBoxColumn.DataPropertyName = "Художник-постановщик";
+            this.художникпостановщикDataGridViewTextBoxColumn.HeaderText = "Художник-постановщик";
+            this.художникпостановщикDataGridViewTextBoxColumn.Name = "художникпостановщикDataGridViewTextBoxColumn";
+            this.художникпостановщикDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // возрастноеОграничениеDataGridViewTextBoxColumn
+            // 
+            this.возрастноеОграничениеDataGridViewTextBoxColumn.DataPropertyName = "Возрастное ограничение";
+            this.возрастноеОграничениеDataGridViewTextBoxColumn.HeaderText = "Возрастное ограничение";
+            this.возрастноеОграничениеDataGridViewTextBoxColumn.Name = "возрастноеОграничениеDataGridViewTextBoxColumn";
+            this.возрастноеОграничениеDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // действующиеЛицаИИсполнителиDataGridViewTextBoxColumn
+            // 
+            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.DataPropertyName = "Действующие лица и исполнители";
+            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.HeaderText = "Действующие лица и исполнители";
+            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.Name = "действующиеЛицаИИсполнителиDataGridViewTextBoxColumn";
+            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // описаниеDataGridViewTextBoxColumn
+            // 
+            this.описаниеDataGridViewTextBoxColumn.DataPropertyName = "Описание";
+            this.описаниеDataGridViewTextBoxColumn.HeaderText = "Описание";
+            this.описаниеDataGridViewTextBoxColumn.Name = "описаниеDataGridViewTextBoxColumn";
+            this.описаниеDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // репертуарBindingSource
+            // 
+            this.репертуарBindingSource.DataMember = "Репертуар";
+            this.репертуарBindingSource.DataSource = this.boxOfficeDBDataSet;
+            // 
+            // boxOfficeDBDataSet
+            // 
+            this.boxOfficeDBDataSet.DataSetName = "boxOfficeDBDataSet";
+            this.boxOfficeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // addPerfomanceButton
             // 
@@ -137,7 +217,7 @@
             this.repertoirePanel.Controls.Add(this.perfomanceNameTextbox);
             this.repertoirePanel.Controls.Add(this.headerLabel);
             this.repertoirePanel.Controls.Add(this.theatreLabel);
-            this.repertoirePanel.Location = new System.Drawing.Point(68, 13);
+            this.repertoirePanel.Location = new System.Drawing.Point(191, 13);
             this.repertoirePanel.Margin = new System.Windows.Forms.Padding(4);
             this.repertoirePanel.Name = "repertoirePanel";
             this.repertoirePanel.Size = new System.Drawing.Size(960, 740);
@@ -377,86 +457,6 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // idСпектакляDataGridViewTextBoxColumn
-            // 
-            this.idСпектакляDataGridViewTextBoxColumn.DataPropertyName = "id спектакля";
-            this.idСпектакляDataGridViewTextBoxColumn.HeaderText = "id спектакля";
-            this.idСпектакляDataGridViewTextBoxColumn.Name = "idСпектакляDataGridViewTextBoxColumn";
-            this.idСпектакляDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idТеатраDataGridViewTextBoxColumn
-            // 
-            this.idТеатраDataGridViewTextBoxColumn.DataPropertyName = "id театра";
-            this.idТеатраDataGridViewTextBoxColumn.HeaderText = "id театра";
-            this.idТеатраDataGridViewTextBoxColumn.Name = "idТеатраDataGridViewTextBoxColumn";
-            this.idТеатраDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // названиеСпектакляDataGridViewTextBoxColumn
-            // 
-            this.названиеСпектакляDataGridViewTextBoxColumn.DataPropertyName = "Название спектакля";
-            this.названиеСпектакляDataGridViewTextBoxColumn.HeaderText = "Название спектакля";
-            this.названиеСпектакляDataGridViewTextBoxColumn.Name = "названиеСпектакляDataGridViewTextBoxColumn";
-            this.названиеСпектакляDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // авторПроизведенияDataGridViewTextBoxColumn
-            // 
-            this.авторПроизведенияDataGridViewTextBoxColumn.DataPropertyName = "Автор произведения";
-            this.авторПроизведенияDataGridViewTextBoxColumn.HeaderText = "Автор произведения";
-            this.авторПроизведенияDataGridViewTextBoxColumn.Name = "авторПроизведенияDataGridViewTextBoxColumn";
-            this.авторПроизведенияDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // жанрПроизведенияDataGridViewTextBoxColumn
-            // 
-            this.жанрПроизведенияDataGridViewTextBoxColumn.DataPropertyName = "Жанр произведения";
-            this.жанрПроизведенияDataGridViewTextBoxColumn.HeaderText = "Жанр произведения";
-            this.жанрПроизведенияDataGridViewTextBoxColumn.Name = "жанрПроизведенияDataGridViewTextBoxColumn";
-            this.жанрПроизведенияDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // режиссерпостановщикDataGridViewTextBoxColumn
-            // 
-            this.режиссерпостановщикDataGridViewTextBoxColumn.DataPropertyName = "Режиссер-постановщик";
-            this.режиссерпостановщикDataGridViewTextBoxColumn.HeaderText = "Режиссер-постановщик";
-            this.режиссерпостановщикDataGridViewTextBoxColumn.Name = "режиссерпостановщикDataGridViewTextBoxColumn";
-            this.режиссерпостановщикDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // художникпостановщикDataGridViewTextBoxColumn
-            // 
-            this.художникпостановщикDataGridViewTextBoxColumn.DataPropertyName = "Художник-постановщик";
-            this.художникпостановщикDataGridViewTextBoxColumn.HeaderText = "Художник-постановщик";
-            this.художникпостановщикDataGridViewTextBoxColumn.Name = "художникпостановщикDataGridViewTextBoxColumn";
-            this.художникпостановщикDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // возрастноеОграничениеDataGridViewTextBoxColumn
-            // 
-            this.возрастноеОграничениеDataGridViewTextBoxColumn.DataPropertyName = "Возрастное ограничение";
-            this.возрастноеОграничениеDataGridViewTextBoxColumn.HeaderText = "Возрастное ограничение";
-            this.возрастноеОграничениеDataGridViewTextBoxColumn.Name = "возрастноеОграничениеDataGridViewTextBoxColumn";
-            this.возрастноеОграничениеDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // действующиеЛицаИИсполнителиDataGridViewTextBoxColumn
-            // 
-            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.DataPropertyName = "Действующие лица и исполнители";
-            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.HeaderText = "Действующие лица и исполнители";
-            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.Name = "действующиеЛицаИИсполнителиDataGridViewTextBoxColumn";
-            this.действующиеЛицаИИсполнителиDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // описаниеDataGridViewTextBoxColumn
-            // 
-            this.описаниеDataGridViewTextBoxColumn.DataPropertyName = "Описание";
-            this.описаниеDataGridViewTextBoxColumn.HeaderText = "Описание";
-            this.описаниеDataGridViewTextBoxColumn.Name = "описаниеDataGridViewTextBoxColumn";
-            this.описаниеDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // репертуарBindingSource
-            // 
-            this.репертуарBindingSource.DataMember = "Репертуар";
-            this.репертуарBindingSource.DataSource = this.boxOfficeDBDataSet;
-            // 
-            // boxOfficeDBDataSet
-            // 
-            this.boxOfficeDBDataSet.DataSetName = "boxOfficeDBDataSet";
-            this.boxOfficeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // репертуарTableAdapter
             // 
             this.репертуарTableAdapter.ClearBeforeFill = true;
@@ -479,7 +479,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(1082, 763);
+            this.ClientSize = new System.Drawing.Size(1332, 763);
             this.Controls.Add(this.repertoirePanel);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
@@ -490,10 +490,10 @@
             this.Text = "Репертуар";
             this.Load += new System.EventHandler(this.repertoireForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repertoireDataGridView)).EndInit();
-            this.repertoirePanel.ResumeLayout(false);
-            this.repertoirePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.репертуарBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxOfficeDBDataSet)).EndInit();
+            this.repertoirePanel.ResumeLayout(false);
+            this.repertoirePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
