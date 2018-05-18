@@ -27,3 +27,8 @@ C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\De
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsd
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xss
 C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.scheduleForm.resources
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.Designer.cs
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsc
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsd
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xss
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.scheduleForm.resources
