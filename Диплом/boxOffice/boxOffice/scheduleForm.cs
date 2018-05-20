@@ -60,9 +60,9 @@ namespace boxOffice
                 reader.Close();
                 con.Close();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Не удалось связаться с базой данных.");
+                MessageBox.Show("Не удалось получить список спектаклей.\nОшибка: " + ex.Message);
                 con.Close();
             }
             for(int i = 0; i < perfomances.Count; i++)
@@ -76,6 +76,29 @@ namespace boxOffice
         {
             headerLabel.Text = "Редактировать";
             submitButton.Text = "Изменить";
+            OleDbConnection con = staticVariables.con;
+            int scheduleID = Convert.ToInt32(scheduleDataGridView[0, scheduleDataGridView.CurrentRow.Index].Value);
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select * from Расписание where id=@id", con);
+                cmd.Parameters.Add("@id", OleDbType.Integer).Value = scheduleID;
+                con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    perfomancesCombobox.SelectedIndex = reader.GetInt32(1) - 1;
+                    perfomanceDateTimePicker.Value = reader.GetDateTime(3);
+                    perfomanceStartsDateTimePicker.Value = reader.GetDateTime(4);
+                    perfomanceEndsDateTimePicker.Value = reader.GetDateTime(5);
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось изменить данные.\nОшибка: " + ex.Message);
+                con.Close();
+            }
             schedulePanel.Show();
         }
 
@@ -105,9 +128,9 @@ namespace boxOffice
                 reader.Close();
                 con.Close();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Не удалось связаться с базой данных.");
+                MessageBox.Show("Не удалось найти выбранный театр.\nОшибка: " + ex.Message);
                 con.Close();
             }
             try
@@ -123,9 +146,9 @@ namespace boxOffice
                 reader.Close();
                 con.Close();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Не удалось связаться с базой данных.");
+                MessageBox.Show("Не удалось определить театр, в котором проходит выбранный спектакль.\nОшибка: " + ex.Message);
                 con.Close();
             }
         }
@@ -148,8 +171,8 @@ namespace boxOffice
                     cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomancesCombobox.SelectedIndex + 1;
                     cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreId;
                     cmd.Parameters.Add("@perfomancedate", OleDbType.DBDate).Value = perfomanceDateTimePicker.Value;
-                    cmd.Parameters.Add("@starttime", OleDbType.DBTime).Value = perfomanceStartsDateTimePicker.Value.TimeOfDay;
-                    cmd.Parameters.Add("@endtime", OleDbType.DBTime).Value = perfomanceEndsDateTimePicker.Value.TimeOfDay;
+                    cmd.Parameters.Add("@starttime", OleDbType.VarChar).Value = perfomanceStartsDateTimePicker.Value.ToShortTimeString();
+                    cmd.Parameters.Add("@endtime", OleDbType.VarChar).Value = perfomanceEndsDateTimePicker.Value.ToShortTimeString();
                     con.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Данные успешно добавлены.");
@@ -158,15 +181,16 @@ namespace boxOffice
                     clearFields();
                     base_load();
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Не удалось связаться с базой данных.");
+                    MessageBox.Show("Не удалось добавить данные.\nОшибка: " + ex.Message);
                     con.Close();
                 }
             }
-            if(submitButton.Text == "Изменить")
+            if(submitButton.Text == "Изменить") // здесь должен быть update
             {
-                
+                int currentCellRow = scheduleDataGridView.CurrentCell.RowIndex;
+                int currentCellColumn = scheduleDataGridView.CurrentCell.ColumnIndex;
             }
         }
     }
