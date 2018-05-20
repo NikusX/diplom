@@ -34,6 +34,14 @@ namespace boxOffice
             con.Close();
         }
 
+        public void clearFields()
+        {
+            perfomancesCombobox.SelectedIndex = 0;
+            perfomanceDateTimePicker.Value = DateTime.Today;
+            perfomanceStartsDateTimePicker.Value = DateTime.Now;
+            perfomanceEndsDateTimePicker.Value = DateTime.Now;
+        }
+
         private void scheduleForm_Load(object sender, EventArgs e)
         {
             base_load();
@@ -119,6 +127,46 @@ namespace boxOffice
             {
                 MessageBox.Show("Не удалось связаться с базой данных.");
                 con.Close();
+            }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            schedulePanel.Hide();
+            clearFields();
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            OleDbConnection con = staticVariables.con;
+            if(submitButton.Text == "Добавить")
+            {
+                try
+                {
+                    OleDbCommand cmd = new OleDbCommand("insert into Расписание ([id спектакля], [id театра], [Дата спектакля], [Время начала спектакля], [Время окончания спектакля]) " +
+                    "values (@perfomanceid, @theatreid, @perfomancedate, @starttime, @endtime)", con);
+                    cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomancesCombobox.SelectedIndex + 1;
+                    cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreId;
+                    cmd.Parameters.Add("@perfomancedate", OleDbType.DBDate).Value = perfomanceDateTimePicker.Value;
+                    cmd.Parameters.Add("@starttime", OleDbType.DBTime).Value = perfomanceStartsDateTimePicker.Value.TimeOfDay;
+                    cmd.Parameters.Add("@endtime", OleDbType.DBTime).Value = perfomanceEndsDateTimePicker.Value.TimeOfDay;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Данные успешно добавлены.");
+                    con.Close();
+                    schedulePanel.Hide();
+                    clearFields();
+                    base_load();
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось связаться с базой данных.");
+                    con.Close();
+                }
+            }
+            if(submitButton.Text == "Изменить")
+            {
+                
             }
         }
     }
