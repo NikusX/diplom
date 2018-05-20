@@ -269,11 +269,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(923, 583);
+            this.Controls.Add(this.schedulePanel);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.scheduleDataGridView);
-            this.Controls.Add(this.schedulePanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "scheduleForm";
             this.Text = "Расписание";
