@@ -210,6 +210,8 @@ namespace boxOffice
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Вы действительно хотите удалить из списка выбранный спектакль?", "Подтверждение действия", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
             OleDbConnection con = staticVariables.con;
             int perfomanceID = Convert.ToInt32(repertoireDataGridView[0, repertoireDataGridView.CurrentRow.Index].Value);
             try
@@ -218,7 +220,7 @@ namespace boxOffice
                 cmd.Parameters.Add("@id", OleDbType.Integer).Value = perfomanceID;
                 con.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Данные успешно удалены");
+                MessageBox.Show("Данные успешно удалены.");
                 con.Close();
                 base_load();
             }

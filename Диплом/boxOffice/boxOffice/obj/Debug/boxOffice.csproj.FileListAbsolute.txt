@@ -32,3 +32,5 @@ C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xsd
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\bin\Debug\boxOfficeDBDataSet.xss
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.scheduleForm.resources
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.theatresForm.resources
+C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.ordersForm.resources

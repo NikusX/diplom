@@ -44,5 +44,17 @@ namespace boxOffice
             scheduleForm scheduleForm1 = new scheduleForm();
             scheduleForm1.ShowDialog();
         }
+
+        private void theatresButton_Click(object sender, EventArgs e)
+        {
+            theatresForm theatresForm1 = new theatresForm();
+            theatresForm1.ShowDialog();
+        }
+
+        private void ordersButton_Click(object sender, EventArgs e)
+        {
+            ordersForm ordersForm1 = new ordersForm();
+            ordersForm1.ShowDialog();
+        }
     }
 }

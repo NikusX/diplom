@@ -63,6 +63,12 @@
     <Compile Include="loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ordersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ordersForm.Designer.cs">
+      <DependentUpon>ordersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repertoireForm.cs">
@@ -78,11 +84,20 @@
       <DependentUpon>scheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="staticVariables.cs" />
+    <Compile Include="theatresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="theatresForm.Designer.cs">
+      <DependentUpon>theatresForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ordersForm.resx">
+      <DependentUpon>ordersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="scheduleForm.resx">
       <DependentUpon>scheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="theatresForm.resx">
+      <DependentUpon>theatresForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="boxOfficeDBDataSet.xsc">
       <DependentUpon>boxOfficeDBDataSet.xsd</DependentUpon>
