@@ -34,15 +34,18 @@
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.ordersPanel = new System.Windows.Forms.Panel();
-            this.headerLabel = new System.Windows.Forms.Label();
-            this.perfomanceLabel = new System.Windows.Forms.Label();
-            this.perfomanceCombobox = new System.Windows.Forms.ComboBox();
-            this.theatreCombobox = new System.Windows.Forms.ComboBox();
-            this.theatreLabel = new System.Windows.Forms.Label();
-            this.countNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.countLabel = new System.Windows.Forms.Label();
+            this.perfomanceDateLabel = new System.Windows.Forms.Label();
+            this.perfomanceDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.submitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.countLabel = new System.Windows.Forms.Label();
+            this.countNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.theatreCombobox = new System.Windows.Forms.ComboBox();
+            this.theatreLabel = new System.Windows.Forms.Label();
+            this.perfomanceCombobox = new System.Windows.Forms.ComboBox();
+            this.perfomanceLabel = new System.Windows.Forms.Label();
+            this.headerLabel = new System.Windows.Forms.Label();
+            this.perfomanceNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
             this.ordersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).BeginInit();
@@ -94,6 +97,9 @@
             // 
             // ordersPanel
             // 
+            this.ordersPanel.Controls.Add(this.perfomanceNameLabel);
+            this.ordersPanel.Controls.Add(this.perfomanceDateLabel);
+            this.ordersPanel.Controls.Add(this.perfomanceDateTimePicker);
             this.ordersPanel.Controls.Add(this.submitButton);
             this.ordersPanel.Controls.Add(this.cancelButton);
             this.ordersPanel.Controls.Add(this.countLabel);
@@ -108,79 +114,24 @@
             this.ordersPanel.Size = new System.Drawing.Size(677, 421);
             this.ordersPanel.TabIndex = 11;
             // 
-            // headerLabel
+            // perfomanceDateLabel
             // 
-            this.headerLabel.AutoSize = true;
-            this.headerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerLabel.Location = new System.Drawing.Point(299, 15);
-            this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(58, 20);
-            this.headerLabel.TabIndex = 0;
-            this.headerLabel.Text = "action";
+            this.perfomanceDateLabel.AutoSize = true;
+            this.perfomanceDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.perfomanceDateLabel.Location = new System.Drawing.Point(13, 52);
+            this.perfomanceDateLabel.Name = "perfomanceDateLabel";
+            this.perfomanceDateLabel.Size = new System.Drawing.Size(131, 20);
+            this.perfomanceDateLabel.TabIndex = 15;
+            this.perfomanceDateLabel.Text = "Дата спектакля";
             // 
-            // perfomanceLabel
+            // perfomanceDateTimePicker
             // 
-            this.perfomanceLabel.AutoSize = true;
-            this.perfomanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomanceLabel.Location = new System.Drawing.Point(13, 90);
-            this.perfomanceLabel.Name = "perfomanceLabel";
-            this.perfomanceLabel.Size = new System.Drawing.Size(91, 20);
-            this.perfomanceLabel.TabIndex = 1;
-            this.perfomanceLabel.Text = "Спектакль";
-            // 
-            // perfomanceCombobox
-            // 
-            this.perfomanceCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.perfomanceCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomanceCombobox.FormattingEnabled = true;
-            this.perfomanceCombobox.Location = new System.Drawing.Point(120, 87);
-            this.perfomanceCombobox.Name = "perfomanceCombobox";
-            this.perfomanceCombobox.Size = new System.Drawing.Size(537, 28);
-            this.perfomanceCombobox.TabIndex = 2;
-            // 
-            // theatreCombobox
-            // 
-            this.theatreCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.theatreCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.theatreCombobox.FormattingEnabled = true;
-            this.theatreCombobox.Location = new System.Drawing.Point(120, 53);
-            this.theatreCombobox.Name = "theatreCombobox";
-            this.theatreCombobox.Size = new System.Drawing.Size(537, 28);
-            this.theatreCombobox.TabIndex = 4;
-            this.theatreCombobox.SelectedIndexChanged += new System.EventHandler(this.theatreCombobox_SelectedIndexChanged);
-            // 
-            // theatreLabel
-            // 
-            this.theatreLabel.AutoSize = true;
-            this.theatreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.theatreLabel.Location = new System.Drawing.Point(13, 56);
-            this.theatreLabel.Name = "theatreLabel";
-            this.theatreLabel.Size = new System.Drawing.Size(54, 20);
-            this.theatreLabel.TabIndex = 3;
-            this.theatreLabel.Text = "Театр";
-            // 
-            // countNumericUpDown
-            // 
-            this.countNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countNumericUpDown.Location = new System.Drawing.Point(120, 121);
-            this.countNumericUpDown.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.countNumericUpDown.Name = "countNumericUpDown";
-            this.countNumericUpDown.Size = new System.Drawing.Size(120, 26);
-            this.countNumericUpDown.TabIndex = 5;
-            // 
-            // countLabel
-            // 
-            this.countLabel.AutoSize = true;
-            this.countLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countLabel.Location = new System.Drawing.Point(13, 123);
-            this.countLabel.Name = "countLabel";
-            this.countLabel.Size = new System.Drawing.Size(100, 20);
-            this.countLabel.TabIndex = 6;
-            this.countLabel.Text = "Количество";
+            this.perfomanceDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.perfomanceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.perfomanceDateTimePicker.Location = new System.Drawing.Point(160, 47);
+            this.perfomanceDateTimePicker.Name = "perfomanceDateTimePicker";
+            this.perfomanceDateTimePicker.Size = new System.Drawing.Size(497, 26);
+            this.perfomanceDateTimePicker.TabIndex = 14;
             // 
             // submitButton
             // 
@@ -205,6 +156,89 @@
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // countLabel
+            // 
+            this.countLabel.AutoSize = true;
+            this.countLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countLabel.Location = new System.Drawing.Point(13, 151);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(100, 20);
+            this.countLabel.TabIndex = 6;
+            this.countLabel.Text = "Количество";
+            // 
+            // countNumericUpDown
+            // 
+            this.countNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countNumericUpDown.Location = new System.Drawing.Point(120, 149);
+            this.countNumericUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.countNumericUpDown.Name = "countNumericUpDown";
+            this.countNumericUpDown.Size = new System.Drawing.Size(120, 26);
+            this.countNumericUpDown.TabIndex = 5;
+            // 
+            // theatreCombobox
+            // 
+            this.theatreCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.theatreCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.theatreCombobox.FormattingEnabled = true;
+            this.theatreCombobox.Location = new System.Drawing.Point(120, 81);
+            this.theatreCombobox.Name = "theatreCombobox";
+            this.theatreCombobox.Size = new System.Drawing.Size(537, 28);
+            this.theatreCombobox.TabIndex = 4;
+            // 
+            // theatreLabel
+            // 
+            this.theatreLabel.AutoSize = true;
+            this.theatreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.theatreLabel.Location = new System.Drawing.Point(13, 84);
+            this.theatreLabel.Name = "theatreLabel";
+            this.theatreLabel.Size = new System.Drawing.Size(54, 20);
+            this.theatreLabel.TabIndex = 3;
+            this.theatreLabel.Text = "Театр";
+            // 
+            // perfomanceCombobox
+            // 
+            this.perfomanceCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.perfomanceCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.perfomanceCombobox.FormattingEnabled = true;
+            this.perfomanceCombobox.Location = new System.Drawing.Point(120, 115);
+            this.perfomanceCombobox.Name = "perfomanceCombobox";
+            this.perfomanceCombobox.Size = new System.Drawing.Size(537, 28);
+            this.perfomanceCombobox.TabIndex = 2;
+            // 
+            // perfomanceLabel
+            // 
+            this.perfomanceLabel.AutoSize = true;
+            this.perfomanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.perfomanceLabel.Location = new System.Drawing.Point(13, 118);
+            this.perfomanceLabel.Name = "perfomanceLabel";
+            this.perfomanceLabel.Size = new System.Drawing.Size(91, 20);
+            this.perfomanceLabel.TabIndex = 1;
+            this.perfomanceLabel.Text = "Спектакль";
+            // 
+            // headerLabel
+            // 
+            this.headerLabel.AutoSize = true;
+            this.headerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.headerLabel.Location = new System.Drawing.Point(299, 15);
+            this.headerLabel.Name = "headerLabel";
+            this.headerLabel.Size = new System.Drawing.Size(58, 20);
+            this.headerLabel.TabIndex = 0;
+            this.headerLabel.Text = "action";
+            // 
+            // perfomanceNameLabel
+            // 
+            this.perfomanceNameLabel.AutoSize = true;
+            this.perfomanceNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.perfomanceNameLabel.Location = new System.Drawing.Point(116, 191);
+            this.perfomanceNameLabel.Name = "perfomanceNameLabel";
+            this.perfomanceNameLabel.Size = new System.Drawing.Size(100, 20);
+            this.perfomanceNameLabel.TabIndex = 16;
+            this.perfomanceNameLabel.Text = "Количество";
             // 
             // ordersForm
             // 
@@ -245,5 +279,8 @@
         private System.Windows.Forms.Label headerLabel;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label perfomanceDateLabel;
+        private System.Windows.Forms.DateTimePicker perfomanceDateTimePicker;
+        private System.Windows.Forms.Label perfomanceNameLabel;
     }
 }

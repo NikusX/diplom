@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,8 @@ namespace boxOffice
         public void clearFields()
         {
             theatreCombobox.SelectedIndex = 0;
-            perfomanceCombobox.SelectedIndex = 0;
+            //perfomanceCombobox.SelectedIndex = 0;
+            perfomanceNameLabel.Text = "name";
             countNumericUpDown.Value = 0;
         }
 
@@ -96,49 +98,6 @@ namespace boxOffice
             ordersPanel.Show();
         }
 
-        bool isPerformed = false;
-
-        private void theatreCombobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            perfomanceCombobox.Items.Clear();
-            submitButton.Enabled = true;
-            int theatreID = theatreCombobox.SelectedIndex + 1;
-            OleDbConnection con = staticVariables.con;
-            try
-            {
-                OleDbCommand cmd = new OleDbCommand("select [Название спектакля] from Репертуар where [id театра]=@id", con);
-                cmd.Parameters.Add("@id", OleDbType.Integer).Value = theatreID;
-                if(!isPerformed)
-                    con.Open();
-                OleDbDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    perfomanceCombobox.Items.Add(reader.GetString(0));
-                }
-                reader.Close();
-                if(!isPerformed)
-                    con.Close();
-                if (perfomanceCombobox.Items.Count == 0)
-                {
-                    perfomanceCombobox.Items.Add("Для выбранного театра спектакли отсутствуют.");
-                    submitButton.Enabled = false;
-                }
-                perfomanceCombobox.SelectedIndex = 0;
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Не удалось получить список спектаклей.\nОшибка: " + ex.Message);
-                con.Close();
-            }
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            ordersPanel.Hide();
-            clearFields();
-        }
-
         string perfomance_name;
 
         public void getPerfomanceName(int perfomance_id)
@@ -149,16 +108,63 @@ namespace boxOffice
                 OleDbCommand cmd = new OleDbCommand("select [Название спектакля] from Репертуар where [id спектакля]=@id", con);
                 cmd.Parameters.Add("@id", OleDbType.VarChar).Value = perfomance_id;
                 OleDbDataReader reader = cmd.ExecuteReader();
-                if(reader.Read())
+                if (reader.Read())
                 {
                     perfomance_name = reader.GetString(0);
                 }
                 reader.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Не удалось связаться с базой данных.\nОшибка: " + ex.Message);
             }
+        }
+
+        bool isPerformed = false;
+
+        public void getScheduleList()
+        {
+            perfomanceCombobox.Items.Clear();
+            submitButton.Enabled = true;
+            DateTime date = perfomanceDateTimePicker.Value;
+            int theatreID = theatreCombobox.SelectedIndex + 1;
+            OleDbConnection con = staticVariables.con;
+            int perfomanceID = 0;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select [id спектакля], [Время начала спектакля] from Расписание where [id театра]=@id and [Дата спектакля]=@date", con);
+                cmd.Parameters.Add("@id", OleDbType.Integer).Value = theatreID;
+                cmd.Parameters.Add("@date", OleDbType.DBDate).Value = date;
+                if(!isPerformed)
+                    con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    perfomanceID = reader.GetInt32(0);
+                }
+                reader.Close();
+                if(!isPerformed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось получить расписание спектаклей.\nОшибка: " + ex.Message);
+                con.Close();
+            }
+            getPerfomanceName(perfomanceID);
+            perfomanceNameLabel.Text = perfomance_name;
+        }
+    
+
+        private void theatreCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getScheduleList();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            ordersPanel.Hide();
+            clearFields();
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -266,6 +272,11 @@ namespace boxOffice
                     con.Close();
                 }
             }
+        }
+
+        private void perfomanceDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            getScheduleList();
         }
     }
 }
