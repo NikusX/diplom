@@ -34,3 +34,5 @@ C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.scheduleForm.resources
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.theatresForm.resources
 C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.ordersForm.resources
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.ordersForm.resources
+C:\Users\tigrn\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\obj\Debug\boxOffice.theatresForm.resources
