@@ -113,25 +113,25 @@ namespace boxOffice
             schedulePanel.Show();
         }
 
-        private void perfomancesCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        public void getTheatreID()
         {
             OleDbConnection con = staticVariables.con;
             theatreId = 0;
             try
             {
                 OleDbCommand cmd = new OleDbCommand("select [id театра], [Название спектакля] from Репертуар", con);
-                if(!isPerformed)
+                if (!isPerformed)
                     con.Open();
                 OleDbDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
+                while (reader.Read())
                 {
-                    if(reader.GetString(1) == perfomancesCombobox.Text)
+                    if (reader.GetString(1) == perfomancesCombobox.Text)
                     {
                         theatreId = reader.GetInt32(0);
                     }
                 }
                 reader.Close();
-                if(!isPerformed)
+                if (!isPerformed)
                     con.Close();
             }
             catch (Exception ex)
@@ -140,6 +140,12 @@ namespace boxOffice
                 if (!isPerformed)
                     con.Close();
             }
+        }
+
+        private void perfomancesCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OleDbConnection con = staticVariables.con;
+            getTheatreID();
             try
             {
                 OleDbCommand cmd = new OleDbCommand("select Название from Театр where [id театра]=:theatreid", con);
@@ -169,6 +175,31 @@ namespace boxOffice
             clearFields();
         }
 
+        public void addingCheck()
+        {
+            OleDbConnection con = staticVariables.con;
+            getTheatreID();
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select [id театра], [Дата спектакля] from Расписание", con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                con.Open();
+                while(reader.Read())
+                {
+                    if(reader.GetInt32(0) == theatreId && reader.GetDateTime(1).CompareTo(perfomanceDateTimePicker.Value) == 0)
+                    {
+                        MessageBox.Show("Невозможно добавить спектакль в расписание. В эту дату уже есть спектакль.");
+                        return;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Не удалось связаться с базой данных.\nОшибка: " + ex.Message);
+                con.Close();
+            }
+        }
+
         private void submitButton_Click(object sender, EventArgs e)
         {
             OleDbConnection con = staticVariables.con;
@@ -179,6 +210,7 @@ namespace boxOffice
                     MessageBox.Show("Пожалуйста, заполните все поля.");
                     return;
                 }
+
                 try
                 {
                     OleDbCommand cmd = new OleDbCommand("insert into Расписание ([id спектакля], [id театра], [Дата спектакля], [Время начала спектакля], [Время окончания спектакля]) " +

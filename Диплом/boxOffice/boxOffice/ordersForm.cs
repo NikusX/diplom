@@ -126,7 +126,7 @@ namespace boxOffice
         {
             perfomanceCombobox.Items.Clear();
             submitButton.Enabled = true;
-            DateTime date = perfomanceDateTimePicker.Value;
+            DateTime date = perfomanceDateTimePicker.Value.Date;
             int theatreID = theatreCombobox.SelectedIndex + 1;
             OleDbConnection con = staticVariables.con;
             int perfomanceID = 0;
