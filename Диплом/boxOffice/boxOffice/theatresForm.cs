@@ -44,6 +44,11 @@ namespace boxOffice
         {
             base_load();
             theatresPanel.Hide();
+            for (int i = 0; i < theatresDataGridView.Columns.Count; i++)
+            {
+                fieldsCombobox.Items.Add(theatresDataGridView.Columns[i].HeaderText);
+            }
+            fieldsCombobox.SelectedIndex = 0;
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -162,6 +167,19 @@ namespace boxOffice
         {
             theatresPanel.Hide();
             clearFields();
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < theatresDataGridView.Rows.Count; i++)
+            {
+                if (theatresDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                {
+                    theatresDataGridView.CurrentCell = theatresDataGridView[fieldsCombobox.SelectedIndex, i];
+                    return;
+                }
+            }
+            MessageBox.Show("Не удалось найти введенное значение.");
         }
     }
 }

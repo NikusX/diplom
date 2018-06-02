@@ -95,6 +95,7 @@ namespace boxOffice
         {
             headerLabel.Text = "Добавить";
             submitButton.Text = "Добавить";
+            
             ordersPanel.Show();
         }
 

@@ -47,6 +47,11 @@
             this.submitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.headerLabel = new System.Windows.Forms.Label();
+            this.findButton = new System.Windows.Forms.Button();
+            this.inFieldLabel = new System.Windows.Forms.Label();
+            this.findTextbox = new System.Windows.Forms.TextBox();
+            this.findLabel = new System.Windows.Forms.Label();
+            this.fieldsCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).BeginInit();
             this.schedulePanel.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +63,7 @@
             this.scheduleDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scheduleDataGridView.Name = "scheduleDataGridView";
             this.scheduleDataGridView.RowTemplate.Height = 24;
-            this.scheduleDataGridView.Size = new System.Drawing.Size(901, 298);
+            this.scheduleDataGridView.Size = new System.Drawing.Size(1224, 298);
             this.scheduleDataGridView.TabIndex = 0;
             // 
             // addButton
@@ -66,7 +71,7 @@
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.Location = new System.Drawing.Point(12, 318);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(185, 70);
             this.addButton.TabIndex = 2;
@@ -79,7 +84,7 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButton.Location = new System.Drawing.Point(397, 318);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(185, 70);
             this.deleteButton.TabIndex = 6;
@@ -92,7 +97,7 @@
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.editButton.Location = new System.Drawing.Point(205, 318);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(185, 70);
             this.editButton.TabIndex = 5;
@@ -115,17 +120,17 @@
             this.schedulePanel.Controls.Add(this.submitButton);
             this.schedulePanel.Controls.Add(this.cancelButton);
             this.schedulePanel.Controls.Add(this.headerLabel);
-            this.schedulePanel.Location = new System.Drawing.Point(12, 12);
+            this.schedulePanel.Location = new System.Drawing.Point(12, 11);
             this.schedulePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schedulePanel.Name = "schedulePanel";
-            this.schedulePanel.Size = new System.Drawing.Size(901, 558);
+            this.schedulePanel.Size = new System.Drawing.Size(1224, 445);
             this.schedulePanel.TabIndex = 7;
             // 
             // perfomanceEndsLabel
             // 
             this.perfomanceEndsLabel.AutoSize = true;
             this.perfomanceEndsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomanceEndsLabel.Location = new System.Drawing.Point(17, 230);
+            this.perfomanceEndsLabel.Location = new System.Drawing.Point(178, 237);
             this.perfomanceEndsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.perfomanceEndsLabel.Name = "perfomanceEndsLabel";
             this.perfomanceEndsLabel.Size = new System.Drawing.Size(176, 25);
@@ -136,8 +141,8 @@
             // 
             this.perfomanceEndsDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.perfomanceEndsDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.perfomanceEndsDateTimePicker.Location = new System.Drawing.Point(216, 224);
-            this.perfomanceEndsDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.perfomanceEndsDateTimePicker.Location = new System.Drawing.Point(377, 231);
+            this.perfomanceEndsDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.perfomanceEndsDateTimePicker.Name = "perfomanceEndsDateTimePicker";
             this.perfomanceEndsDateTimePicker.ShowUpDown = true;
             this.perfomanceEndsDateTimePicker.Size = new System.Drawing.Size(661, 30);
@@ -147,7 +152,7 @@
             // 
             this.perfomanceStartsLabel.AutoSize = true;
             this.perfomanceStartsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomanceStartsLabel.Location = new System.Drawing.Point(17, 191);
+            this.perfomanceStartsLabel.Location = new System.Drawing.Point(178, 198);
             this.perfomanceStartsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.perfomanceStartsLabel.Name = "perfomanceStartsLabel";
             this.perfomanceStartsLabel.Size = new System.Drawing.Size(143, 25);
@@ -156,10 +161,11 @@
             // 
             // perfomanceStartsDateTimePicker
             // 
+            this.perfomanceStartsDateTimePicker.Checked = false;
             this.perfomanceStartsDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.perfomanceStartsDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.perfomanceStartsDateTimePicker.Location = new System.Drawing.Point(216, 185);
-            this.perfomanceStartsDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.perfomanceStartsDateTimePicker.Location = new System.Drawing.Point(377, 192);
+            this.perfomanceStartsDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.perfomanceStartsDateTimePicker.Name = "perfomanceStartsDateTimePicker";
             this.perfomanceStartsDateTimePicker.ShowUpDown = true;
             this.perfomanceStartsDateTimePicker.Size = new System.Drawing.Size(661, 30);
@@ -169,7 +175,7 @@
             // 
             this.perfomanceDateLabel.AutoSize = true;
             this.perfomanceDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomanceDateLabel.Location = new System.Drawing.Point(17, 151);
+            this.perfomanceDateLabel.Location = new System.Drawing.Point(178, 158);
             this.perfomanceDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.perfomanceDateLabel.Name = "perfomanceDateLabel";
             this.perfomanceDateLabel.Size = new System.Drawing.Size(163, 25);
@@ -180,17 +186,18 @@
             // 
             this.perfomanceDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.perfomanceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.perfomanceDateTimePicker.Location = new System.Drawing.Point(216, 145);
-            this.perfomanceDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.perfomanceDateTimePicker.Location = new System.Drawing.Point(377, 152);
+            this.perfomanceDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.perfomanceDateTimePicker.Name = "perfomanceDateTimePicker";
             this.perfomanceDateTimePicker.Size = new System.Drawing.Size(661, 30);
             this.perfomanceDateTimePicker.TabIndex = 12;
             // 
             // theatreTextbox
             // 
+            this.theatreTextbox.Enabled = false;
             this.theatreTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.theatreTextbox.Location = new System.Drawing.Point(97, 105);
-            this.theatreTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.theatreTextbox.Location = new System.Drawing.Point(258, 112);
+            this.theatreTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.theatreTextbox.Name = "theatreTextbox";
             this.theatreTextbox.Size = new System.Drawing.Size(780, 30);
             this.theatreTextbox.TabIndex = 11;
@@ -199,7 +206,7 @@
             // 
             this.theatreLabel.AutoSize = true;
             this.theatreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.theatreLabel.Location = new System.Drawing.Point(17, 108);
+            this.theatreLabel.Location = new System.Drawing.Point(178, 115);
             this.theatreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.theatreLabel.Name = "theatreLabel";
             this.theatreLabel.Size = new System.Drawing.Size(68, 25);
@@ -210,7 +217,7 @@
             // 
             this.perfomancesLabel.AutoSize = true;
             this.perfomancesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomancesLabel.Location = new System.Drawing.Point(17, 64);
+            this.perfomancesLabel.Location = new System.Drawing.Point(178, 71);
             this.perfomancesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.perfomancesLabel.Name = "perfomancesLabel";
             this.perfomancesLabel.Size = new System.Drawing.Size(111, 25);
@@ -222,8 +229,8 @@
             this.perfomancesCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.perfomancesCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.perfomancesCombobox.FormattingEnabled = true;
-            this.perfomancesCombobox.Location = new System.Drawing.Point(147, 60);
-            this.perfomancesCombobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.perfomancesCombobox.Location = new System.Drawing.Point(308, 67);
+            this.perfomancesCombobox.Margin = new System.Windows.Forms.Padding(4);
             this.perfomancesCombobox.Name = "perfomancesCombobox";
             this.perfomancesCombobox.Size = new System.Drawing.Size(731, 33);
             this.perfomancesCombobox.TabIndex = 8;
@@ -233,8 +240,8 @@
             // 
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.submitButton.Location = new System.Drawing.Point(449, 284);
-            this.submitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.submitButton.Location = new System.Drawing.Point(610, 291);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(4);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(185, 70);
             this.submitButton.TabIndex = 7;
@@ -246,8 +253,8 @@
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(255, 284);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Location = new System.Drawing.Point(416, 291);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(185, 70);
             this.cancelButton.TabIndex = 6;
@@ -259,24 +266,79 @@
             // 
             this.headerLabel.AutoSize = true;
             this.headerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerLabel.Location = new System.Drawing.Point(403, 14);
+            this.headerLabel.Location = new System.Drawing.Point(564, 21);
             this.headerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.headerLabel.Name = "headerLabel";
             this.headerLabel.Size = new System.Drawing.Size(73, 25);
             this.headerLabel.TabIndex = 2;
             this.headerLabel.Text = "Action";
             // 
+            // findButton
+            // 
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.Location = new System.Drawing.Point(1048, 405);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(165, 33);
+            this.findButton.TabIndex = 14;
+            this.findButton.Text = "Найти";
+            this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            // 
+            // inFieldLabel
+            // 
+            this.inFieldLabel.AutoSize = true;
+            this.inFieldLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.inFieldLabel.Location = new System.Drawing.Point(448, 409);
+            this.inFieldLabel.Name = "inFieldLabel";
+            this.inFieldLabel.Size = new System.Drawing.Size(72, 25);
+            this.inFieldLabel.TabIndex = 13;
+            this.inFieldLabel.Text = "в поле";
+            // 
+            // findTextbox
+            // 
+            this.findTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findTextbox.Location = new System.Drawing.Point(97, 406);
+            this.findTextbox.Name = "findTextbox";
+            this.findTextbox.Size = new System.Drawing.Size(345, 30);
+            this.findTextbox.TabIndex = 12;
+            // 
+            // findLabel
+            // 
+            this.findLabel.AutoSize = true;
+            this.findLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findLabel.Location = new System.Drawing.Point(22, 409);
+            this.findLabel.Name = "findLabel";
+            this.findLabel.Size = new System.Drawing.Size(69, 25);
+            this.findLabel.TabIndex = 11;
+            this.findLabel.Text = "Найти";
+            // 
+            // fieldsCombobox
+            // 
+            this.fieldsCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fieldsCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fieldsCombobox.FormattingEnabled = true;
+            this.fieldsCombobox.Location = new System.Drawing.Point(527, 405);
+            this.fieldsCombobox.Name = "fieldsCombobox";
+            this.fieldsCombobox.Size = new System.Drawing.Size(516, 33);
+            this.fieldsCombobox.TabIndex = 10;
+            // 
             // scheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(923, 583);
+            this.ClientSize = new System.Drawing.Size(1248, 466);
             this.Controls.Add(this.schedulePanel);
+            this.Controls.Add(this.findButton);
+            this.Controls.Add(this.inFieldLabel);
+            this.Controls.Add(this.findTextbox);
+            this.Controls.Add(this.findLabel);
+            this.Controls.Add(this.fieldsCombobox);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.scheduleDataGridView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "scheduleForm";
@@ -286,6 +348,7 @@
             this.schedulePanel.ResumeLayout(false);
             this.schedulePanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -309,5 +372,10 @@
         private System.Windows.Forms.DateTimePicker perfomanceEndsDateTimePicker;
         private System.Windows.Forms.Label perfomanceStartsLabel;
         private System.Windows.Forms.DateTimePicker perfomanceStartsDateTimePicker;
+        private System.Windows.Forms.Button findButton;
+        private System.Windows.Forms.Label inFieldLabel;
+        private System.Windows.Forms.TextBox findTextbox;
+        private System.Windows.Forms.Label findLabel;
+        private System.Windows.Forms.ComboBox fieldsCombobox;
     }
 }

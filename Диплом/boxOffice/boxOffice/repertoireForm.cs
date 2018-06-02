@@ -35,7 +35,7 @@ namespace boxOffice
         private void repertoireForm_Load(object sender, EventArgs e)
         {
             repertoirePanel.Hide();
-            this.Height = 550;
+            this.Height = 380;
             List<string> theatres = new List<string>();
             OleDbConnection con = staticVariables.con;
             try
@@ -64,13 +64,76 @@ namespace boxOffice
             ageLimitCombobox.Items.AddRange(ageLimit);
             ageLimitCombobox.SelectedIndex = 0;
             base_load();
+            for(int i = 0; i < repertoireDataGridView.Columns.Count; i++)
+            {
+                fieldsCombobox.Items.Add(repertoireDataGridView.Columns[i].HeaderText);
+            }
+            fieldsCombobox.SelectedIndex = 0;
+        }
+
+        int theatreId = 0;
+        bool isPerformed = false;
+
+        public void getTheatreID()
+        {
+            OleDbConnection con = staticVariables.con;
+            theatreId = 0;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select [id театра] from Театр where [Название]=@name", con);
+                cmd.Parameters.Add("@name", OleDbType.VarChar).Value = theatresCombobox.Text;
+                if (!isPerformed)
+                    con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    theatreId = reader.GetInt32(0);
+                }
+                reader.Close();
+                if (!isPerformed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось получить id выбранного театра.\nОшибка: " + ex.Message);
+                if (!isPerformed)
+                    con.Close();
+            }
+        }
+
+        string theatreName = "";
+        public void getTheatreName(int id)
+        {
+            OleDbConnection con = staticVariables.con;
+            theatreId = 0;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select [Название] from Театр where [id театра]=@id", con);
+                cmd.Parameters.Add("@id", OleDbType.Integer).Value = id;
+                if (!isPerformed)
+                    con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    theatreName = reader.GetString(0);
+                }
+                reader.Close();
+                if (!isPerformed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось получить id выбранного театра.\nОшибка: " + ex.Message);
+                if (!isPerformed)
+                    con.Close();
+            }
         }
 
         private void addPerfomanceButton_Click(object sender, EventArgs e)
         {
             headerLabel.Text = "Добавить";
             submitButton.Text = "Добавить";
-            this.Height = 810;
+            this.Height = 750;
             repertoirePanel.Show();
         }
 
@@ -90,7 +153,7 @@ namespace boxOffice
         private void cancelButton_Click(object sender, EventArgs e)
         {
             repertoirePanel.Hide();
-            this.Height = 550;
+            this.Height = 380;
             clearFields();
         }
 
@@ -100,6 +163,7 @@ namespace boxOffice
             int currentCellColumn = repertoireDataGridView.CurrentCell.ColumnIndex;
             int currentCellRow = repertoireDataGridView.CurrentCell.RowIndex;
             int perfomanceID = Convert.ToInt32(repertoireDataGridView[0, repertoireDataGridView.CurrentRow.Index].Value);
+            getTheatreID();
             if (submitButton.Text == "Добавить")
             {
                 if(perfomanceNameTextbox.Text == "" || authorOfWorkTextbox.Text == "" ||
@@ -107,12 +171,13 @@ namespace boxOffice
                      artDirectorTextbox.Text == "" || actorsTextbox.Text == "" || descriptionTextbox.Text == "")
                 {
                     MessageBox.Show("Пожалуйста, заполните все поля.");
+                    return;
                 }
                 try
                 {
                     OleDbCommand cmd = new OleDbCommand("insert into Репертуар ([id театра], [Название спектакля], [Автор произведения], [Жанр произведения], [Режиссер-постановщик], [Художник-постановщик], [Возрастное ограничение], [Действующие лица и исполнители], Описание) " +
                         "values (@theatreid, @name, @author, @genre, @director, @artdirector, @agelimit, @actors, @description)", con);
-                    cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatresCombobox.SelectedIndex + 1;
+                    cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreId;
                     cmd.Parameters.Add("@name", OleDbType.VarChar).Value = perfomanceNameTextbox.Text;
                     cmd.Parameters.Add("@author", OleDbType.VarChar).Value = authorOfWorkTextbox.Text;
                     cmd.Parameters.Add("@genre", OleDbType.VarChar).Value = genreOfWorkTextbox.Text;
@@ -125,7 +190,7 @@ namespace boxOffice
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Данные успешно добавлены.");
                     repertoirePanel.Hide();
-                    this.Height = 550;
+                    this.Height = 380;
                     clearFields();
                     con.Close();
                     base_load();
@@ -135,7 +200,6 @@ namespace boxOffice
                     MessageBox.Show("Не удалось связаться с базой данных.");
                     con.Close();
                 }
-                
             }
             if(submitButton.Text == "Изменить")
             {
@@ -144,7 +208,7 @@ namespace boxOffice
                     OleDbCommand cmd = new OleDbCommand("update Репертуар set [id театра]=@theatreid, [Название спектакля]=@perfomancename, [Автор произведения]=@author, " +
                     "[Жанр произведения]=@genre, [Режиссер-постановщик]=@director, [Художник-постановщик]=@artdirector, [Возрастное ограничение]=@agelimit, " +
                     "[Действующие лица и исполнители]=@actors, Описание=@description where [id спектакля]=@perfomanceid", con);
-                    cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatresCombobox.SelectedIndex + 1;
+                    cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreId;
                     cmd.Parameters.Add("@perfomancename", OleDbType.VarChar).Value = perfomanceNameTextbox.Text;
                     cmd.Parameters.Add("@author", OleDbType.VarChar).Value = authorOfWorkTextbox.Text;
                     cmd.Parameters.Add("@genre", OleDbType.VarChar).Value = genreOfWorkTextbox.Text;
@@ -158,7 +222,7 @@ namespace boxOffice
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Данные успешно обновлены.");
                     repertoirePanel.Hide();
-                    this.Height = 550;
+                    this.Height = 380;
                     clearFields();
                     con.Close();
                     base_load();
@@ -177,6 +241,8 @@ namespace boxOffice
             headerLabel.Text = "Редактировать";
             submitButton.Text = "Изменить";
             int perfomanceID = Convert.ToInt32(repertoireDataGridView[0, repertoireDataGridView.CurrentRow.Index].Value);
+            int theatreID = Convert.ToInt32(repertoireDataGridView[1, repertoireDataGridView.CurrentRow.Index].Value);
+            getTheatreName(theatreID);
             OleDbConnection con = staticVariables.con;
             try
             {
@@ -186,7 +252,7 @@ namespace boxOffice
                 OleDbDataReader reader = cmd.ExecuteReader();
                 if(reader.Read())
                 {
-                    theatresCombobox.SelectedIndex = reader.GetInt32(1) - 1;
+                    theatresCombobox.Text = theatreName;
                     perfomanceNameTextbox.Text = reader.GetString(2);
                     authorOfWorkTextbox.Text = reader.GetString(3);
                     genreOfWorkTextbox.Text = reader.GetString(4);
@@ -204,7 +270,7 @@ namespace boxOffice
                 MessageBox.Show("Не удалось связаться с базой данных.");
                 con.Close();
             }
-            this.Height = 810;
+            this.Height = 750;
             repertoirePanel.Show();
         }
 
@@ -229,6 +295,19 @@ namespace boxOffice
                 MessageBox.Show("Не удалось связаться с базой данных.");
                 con.Close();
             }
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < repertoireDataGridView.Rows.Count; i++)
+            {
+                if(repertoireDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                {
+                    repertoireDataGridView.CurrentCell = repertoireDataGridView[fieldsCombobox.SelectedIndex, i];
+                    return;
+                }
+            }
+            MessageBox.Show("Не удалось найти введенное значение.");
         }
     }
 }
