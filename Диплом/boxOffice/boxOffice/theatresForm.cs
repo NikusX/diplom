@@ -171,15 +171,21 @@ namespace boxOffice
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < theatresDataGridView.Rows.Count; i++)
+            try
             {
-                if (theatresDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                for (int i = 0; i < theatresDataGridView.Rows.Count; i++)
                 {
-                    theatresDataGridView.CurrentCell = theatresDataGridView[fieldsCombobox.SelectedIndex, i];
-                    return;
+                    if (theatresDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                    {
+                        theatresDataGridView.CurrentCell = theatresDataGridView[fieldsCombobox.SelectedIndex, i];
+                        return;
+                    }
                 }
             }
-            MessageBox.Show("Не удалось найти введенное значение.");
+            catch
+            {
+                MessageBox.Show("Не удалось найти введенное значение.");
+            }
         }
     }
 }

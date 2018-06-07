@@ -78,6 +78,31 @@ namespace boxOffice
         }
 
         bool isPerformed = false;
+        string perfomanceName;
+
+        public void getPerfomanceName(int id)
+        {
+            OleDbConnection con = staticVariables.con;
+            theatreId = 0;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select [Название спектакля] from Репертуар where [id спектакля]=@id", con);
+                cmd.Parameters.Add("@id", OleDbType.Integer).Value = id;
+                con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    perfomanceName = reader.GetString(0);
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось получить название спектакля.\nОшибка: " + ex.Message);
+                con.Close();
+            }
+        }
 
         private void editButton_Click(object sender, EventArgs e)
         {
@@ -86,6 +111,8 @@ namespace boxOffice
             submitButton.Text = "Изменить";
             OleDbConnection con = staticVariables.con;
             int scheduleID = Convert.ToInt32(scheduleDataGridView[0, scheduleDataGridView.CurrentRow.Index].Value);
+            int perfomance_id = Convert.ToInt32(scheduleDataGridView[1, scheduleDataGridView.CurrentRow.Index].Value);
+            getPerfomanceName(perfomance_id);
             try
             {
                 OleDbCommand cmd = new OleDbCommand("select * from Расписание where id=:id", con);
@@ -94,7 +121,7 @@ namespace boxOffice
                 OleDbDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    perfomancesCombobox.SelectedIndex = reader.GetInt32(1) - 1;
+                    perfomancesCombobox.Text = perfomanceName;
                     perfomanceDateTimePicker.Value = reader.GetDateTime(3);
                     perfomanceStartsDateTimePicker.Value = reader.GetDateTime(4);
                     perfomanceEndsDateTimePicker.Value = reader.GetDateTime(5);
@@ -219,8 +246,8 @@ namespace boxOffice
                     MessageBox.Show("Пожалуйста, заполните все поля.");
                     return;
                 }
-                //try
-                //{
+                try
+                {
                     getPerfomanceID();
                     getTheatreID();
                     OleDbCommand cmd = new OleDbCommand("insert into Расписание ([id спектакля], [id театра], [Дата спектакля], [Время начала спектакля], [Время окончания спектакля]) " +
@@ -237,12 +264,12 @@ namespace boxOffice
                     schedulePanel.Hide();
                     clearFields();
                     base_load();
-                //}
-                //catch(Exception ex)
-                //{
-                //    MessageBox.Show("Не удалось добавить данные.\nОшибка: " + ex.Message);
-                //    con.Close();
-                //}
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не удалось добавить данные.\nОшибка: " + ex.Message);
+                    con.Close();
+                }
             }
             if(submitButton.Text == "Изменить")
             {
@@ -251,8 +278,10 @@ namespace boxOffice
                 int scheduleID = Convert.ToInt32(scheduleDataGridView[0, scheduleDataGridView.CurrentRow.Index].Value);
                 try
                 {
+                    getPerfomanceID();
+                    getTheatreID();
                     OleDbCommand cmd = new OleDbCommand("update Расписание set [id спектакля]=@perfomanceid, [id театра]=@theatreid, [Дата спектакля]=@perfomacedate, [Время начала спектакля]=@perfomancestarts, [Время окончания спектакля]=perfomanceends where id=@id", con);
-                    cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomancesCombobox.SelectedIndex + 1;
+                    cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomanceID;
                     cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreId;
                     cmd.Parameters.Add("@perfomancedate", OleDbType.DBDate).Value = perfomanceDateTimePicker.Value.ToShortDateString();
                     cmd.Parameters.Add("@perfomancestarts", OleDbType.VarChar).Value = perfomanceStartsDateTimePicker.Value.ToShortTimeString();
@@ -299,15 +328,21 @@ namespace boxOffice
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < scheduleDataGridView.Rows.Count; i++)
+            try
             {
-                if (scheduleDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                for (int i = 0; i < scheduleDataGridView.Rows.Count; i++)
                 {
-                    scheduleDataGridView.CurrentCell = scheduleDataGridView[fieldsCombobox.SelectedIndex, i];
-                    return;
+                    if (scheduleDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                    {
+                        scheduleDataGridView.CurrentCell = scheduleDataGridView[fieldsCombobox.SelectedIndex, i];
+                        return;
+                    }
                 }
             }
-            MessageBox.Show("Не удалось найти введенное значение.");
+            catch
+            {
+                MessageBox.Show("Не удалось найти введенное значение.");
+            }   
         }
     }
 }

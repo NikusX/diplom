@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace boxOffice
 {
@@ -27,7 +28,7 @@ namespace boxOffice
             OleDbDataAdapter adapter = new OleDbDataAdapter();
             adapter.SelectCommand = com;
             adapter.Fill(ds);
-            DataTable dt = ds.Tables[0];
+            System.Data.DataTable dt = ds.Tables[0];
             repertoireDataGridView.DataSource = dt;
             con.Close();
         }
@@ -69,6 +70,8 @@ namespace boxOffice
                 fieldsCombobox.Items.Add(repertoireDataGridView.Columns[i].HeaderText);
             }
             fieldsCombobox.SelectedIndex = 0;
+            ToolTip tooltip = new ToolTip();
+            tooltip.SetToolTip(this.repertoireReportButton, "Отчет откроется в программе Excel");
         }
 
         int theatreId = 0;
@@ -299,15 +302,56 @@ namespace boxOffice
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < repertoireDataGridView.Rows.Count; i++)
+            try
             {
-                if(repertoireDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                for (int i = 0; i < repertoireDataGridView.Rows.Count; i++)
                 {
-                    repertoireDataGridView.CurrentCell = repertoireDataGridView[fieldsCombobox.SelectedIndex, i];
-                    return;
+                    if (repertoireDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                    {
+                        repertoireDataGridView.CurrentCell = repertoireDataGridView[fieldsCombobox.SelectedIndex, i];
+                        return;
+                    }
                 }
             }
-            MessageBox.Show("Не удалось найти введенное значение.");
+            catch
+            {
+                MessageBox.Show("Не удалось найти введенное значение.");
+            }
+        }
+
+        private void repertoireReportButton_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook;
+            Excel.Worksheet worksheet;
+            Excel.Range excelCells;
+            workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            worksheet = (Excel.Worksheet)workbook.Sheets[1];
+            worksheet.Cells[1, 1] = repertoireDataGridView.Columns[0].HeaderText;
+            worksheet.Cells[1, 2] = repertoireDataGridView.Columns[1].HeaderText;
+            worksheet.Cells[1, 3] = repertoireDataGridView.Columns[2].HeaderText;
+            worksheet.Cells[1, 4] = repertoireDataGridView.Columns[3].HeaderText;
+            worksheet.Cells[1, 5] = repertoireDataGridView.Columns[4].HeaderText;
+            worksheet.Cells[1, 6] = repertoireDataGridView.Columns[5].HeaderText;
+            worksheet.Cells[1, 7] = repertoireDataGridView.Columns[6].HeaderText;
+            worksheet.Cells[1, 8] = repertoireDataGridView.Columns[7].HeaderText;
+            worksheet.Cells[1, 9] = repertoireDataGridView.Columns[8].HeaderText;
+            worksheet.Cells[1, 10] = repertoireDataGridView.Columns[9].HeaderText;
+            for (int i = 0; i < repertoireDataGridView.Rows.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1] = repertoireDataGridView[i, 0].Value;
+                worksheet.Cells[i + 2, 2] = repertoireDataGridView[i, 1].Value;
+                worksheet.Cells[i + 2, 3] = repertoireDataGridView[i, 2].Value;
+                worksheet.Cells[i + 2, 4] = repertoireDataGridView[i, 3].Value;
+                worksheet.Cells[i + 2, 5] = repertoireDataGridView[i, 4].Value;
+                worksheet.Cells[i + 2, 6] = repertoireDataGridView[i, 5].Value;
+                worksheet.Cells[i + 2, 7] = repertoireDataGridView[i, 6].Value;
+                worksheet.Cells[i + 2, 8] = repertoireDataGridView[i, 7].Value;
+                worksheet.Cells[i + 2, 9] = repertoireDataGridView[i, 8].Value;
+                worksheet.Cells[i + 2, 10] = repertoireDataGridView[i, 9].Value;
+            }
+            excelApp.Visible = true;
+            excelApp.UserControl = true;
         }
     }
 }
