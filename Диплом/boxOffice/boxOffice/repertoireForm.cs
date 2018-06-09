@@ -31,12 +31,13 @@ namespace boxOffice
             System.Data.DataTable dt = ds.Tables[0];
             repertoireDataGridView.DataSource = dt;
             con.Close();
+            repertoireDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void repertoireForm_Load(object sender, EventArgs e)
         {
             repertoirePanel.Hide();
-            this.Height = 380;
+            this.Height = 455;
             List<string> theatres = new List<string>();
             OleDbConnection con = staticVariables.con;
             try
@@ -68,8 +69,10 @@ namespace boxOffice
             for(int i = 0; i < repertoireDataGridView.Columns.Count; i++)
             {
                 fieldsCombobox.Items.Add(repertoireDataGridView.Columns[i].HeaderText);
+                filterCombobox.Items.Add(repertoireDataGridView.Columns[i].HeaderText);
             }
             fieldsCombobox.SelectedIndex = 0;
+            filterCombobox.SelectedIndex = 0;
             ToolTip tooltip = new ToolTip();
             tooltip.SetToolTip(this.repertoireReportButton, "Отчет откроется в программе Excel");
         }
@@ -156,7 +159,7 @@ namespace boxOffice
         private void cancelButton_Click(object sender, EventArgs e)
         {
             repertoirePanel.Hide();
-            this.Height = 380;
+            this.Height = 455;
             clearFields();
         }
 
@@ -193,7 +196,7 @@ namespace boxOffice
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Данные успешно добавлены.");
                     repertoirePanel.Hide();
-                    this.Height = 380;
+                    this.Height = 455;
                     clearFields();
                     con.Close();
                     base_load();
@@ -225,7 +228,7 @@ namespace boxOffice
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Данные успешно обновлены.");
                     repertoirePanel.Hide();
-                    this.Height = 380;
+                    this.Height = 455;
                     clearFields();
                     con.Close();
                     base_load();
@@ -324,7 +327,6 @@ namespace boxOffice
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook;
             Excel.Worksheet worksheet;
-            Excel.Range excelCells;
             workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
             worksheet = (Excel.Worksheet)workbook.Sheets[1];
             worksheet.Cells[1, 1] = repertoireDataGridView.Columns[0].HeaderText;
@@ -339,19 +341,30 @@ namespace boxOffice
             worksheet.Cells[1, 10] = repertoireDataGridView.Columns[9].HeaderText;
             for (int i = 0; i < repertoireDataGridView.Rows.Count; i++)
             {
-                worksheet.Cells[i + 2, 1] = repertoireDataGridView[i, 0].Value;
-                worksheet.Cells[i + 2, 2] = repertoireDataGridView[i, 1].Value;
-                worksheet.Cells[i + 2, 3] = repertoireDataGridView[i, 2].Value;
-                worksheet.Cells[i + 2, 4] = repertoireDataGridView[i, 3].Value;
-                worksheet.Cells[i + 2, 5] = repertoireDataGridView[i, 4].Value;
-                worksheet.Cells[i + 2, 6] = repertoireDataGridView[i, 5].Value;
-                worksheet.Cells[i + 2, 7] = repertoireDataGridView[i, 6].Value;
-                worksheet.Cells[i + 2, 8] = repertoireDataGridView[i, 7].Value;
-                worksheet.Cells[i + 2, 9] = repertoireDataGridView[i, 8].Value;
-                worksheet.Cells[i + 2, 10] = repertoireDataGridView[i, 9].Value;
+                worksheet.Cells[i + 2, 1] = repertoireDataGridView[0, i] .Value;
+                worksheet.Cells[i + 2, 2] = repertoireDataGridView[1, i].Value;
+                worksheet.Cells[i + 2, 3] = repertoireDataGridView[2, i].Value;
+                worksheet.Cells[i + 2, 4] = repertoireDataGridView[3, i].Value;
+                worksheet.Cells[i + 2, 5] = repertoireDataGridView[4, i].Value;
+                worksheet.Cells[i + 2, 6] = repertoireDataGridView[5, i].Value;
+                worksheet.Cells[i + 2, 7] = repertoireDataGridView[6, i].Value;
+                worksheet.Cells[i + 2, 8] = repertoireDataGridView[7, i].Value;
+                worksheet.Cells[i + 2, 9] = repertoireDataGridView[8, i].Value;
+                worksheet.Cells[i + 2, 10] = repertoireDataGridView[9, i].Value;
             }
+            worksheet.Columns.AutoFit();
             excelApp.Visible = true;
             excelApp.UserControl = true;
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            (repertoireDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format("[" + filterCombobox.Text.ToString() + "]" + " = '{0}'", filterTextbox.Text);
+        }
+
+        private void resetFilterButton_Click(object sender, EventArgs e)
+        {
+            (repertoireDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
         }
     }
 }

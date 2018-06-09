@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace boxOffice
 {
@@ -32,6 +33,7 @@ namespace boxOffice
             DataTable dt = ds.Tables[0];
             scheduleDataGridView.DataSource = dt;
             con.Close();
+            scheduleDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         public void clearFields()
@@ -73,8 +75,10 @@ namespace boxOffice
             for (int i = 0; i < scheduleDataGridView.Columns.Count; i++)
             {
                 fieldsCombobox.Items.Add(scheduleDataGridView.Columns[i].HeaderText);
+                filterCombobox.Items.Add(scheduleDataGridView.Columns[i].HeaderText);
             }
             fieldsCombobox.SelectedIndex = 0;
+            filterCombobox.SelectedIndex = 0;
         }
 
         bool isPerformed = false;
@@ -343,6 +347,43 @@ namespace boxOffice
             {
                 MessageBox.Show("Не удалось найти введенное значение.");
             }   
+        }
+
+        private void scheduleReportButton_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook;
+            Excel.Worksheet worksheet;
+            workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            worksheet = (Excel.Worksheet)workbook.Sheets[1];
+            worksheet.Cells[1, 1] = scheduleDataGridView.Columns[0].HeaderText;
+            worksheet.Cells[1, 2] = scheduleDataGridView.Columns[1].HeaderText;
+            worksheet.Cells[1, 3] = scheduleDataGridView.Columns[2].HeaderText;
+            worksheet.Cells[1, 4] = scheduleDataGridView.Columns[3].HeaderText;
+            worksheet.Cells[1, 5] = scheduleDataGridView.Columns[4].HeaderText;
+            worksheet.Cells[1, 6] = scheduleDataGridView.Columns[5].HeaderText;
+            for (int i = 0; i < scheduleDataGridView.Rows.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1] = scheduleDataGridView[0, i].Value;
+                worksheet.Cells[i + 2, 2] = scheduleDataGridView[1, i].Value;
+                worksheet.Cells[i + 2, 3] = scheduleDataGridView[2, i].Value;
+                worksheet.Cells[i + 2, 4] = scheduleDataGridView[3, i].Value;
+                worksheet.Cells[i + 2, 5] = scheduleDataGridView[4, i].Value;
+                worksheet.Cells[i + 2, 6] = scheduleDataGridView[5, i].Value;
+            }
+            worksheet.Columns.AutoFit();
+            excelApp.Visible = true;
+            excelApp.UserControl = true;
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            (scheduleDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format("[" + filterCombobox.Text.ToString() + "]" + " = '{0}'", filterTextbox.Text);
+        }
+
+        private void resetFilterButton_Click(object sender, EventArgs e)
+        {
+            (scheduleDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
         }
     }
 }

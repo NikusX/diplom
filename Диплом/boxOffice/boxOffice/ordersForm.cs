@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace boxOffice
 {
@@ -57,12 +58,14 @@ namespace boxOffice
         }
 
         int orderID;
+        int value = 0;
         GroupBox[] tickets = new GroupBox[5];
         NumericUpDown[] rows = new NumericUpDown[6];
         NumericUpDown[] seats = new NumericUpDown[6];
 
         private void ordersForm_Load(object sender, EventArgs e)
         {
+            ticketsDataGridView.Hide();
             base_load();
             ordersPanel.Hide();
             ticket2.Hide();
@@ -90,6 +93,8 @@ namespace boxOffice
             perfomanceDateTimePicker.Value = DateTime.Today.Date;
             perfomanceDateTimePicker.MinDate = DateTime.Today.Date;
             perfomanceCombobox.SelectedIndex = 0;
+            backButton.Hide();
+            printTicketButton.Hide();
         }
 
         int count = 0;
@@ -224,11 +229,14 @@ namespace boxOffice
                     return;
                 try
                 {
-                    OleDbCommand cmd = new OleDbCommand("insert into Заказы ([id спектакля], [id театра], [Количество билетов], [Дата спектакля]) values (@perfomanceid, @theatreid, @count, @date)", con);
+                    OleDbCommand cmd = new OleDbCommand("insert into Заказы ([id спектакля], [id театра], [Количество билетов], [Дата спектакля], Стоимость) values (@perfomanceid, @theatreid, @count, @date, @stoim)", con);
                     cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomaceIDs[perfomanceCombobox.SelectedIndex];
                     cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreIDs[perfomanceCombobox.SelectedIndex];
                     cmd.Parameters.Add("@count", OleDbType.Integer).Value = countNumericUpDown.Value;
                     cmd.Parameters.Add("@date", OleDbType.DBDate).Value = perfomanceDateTimePicker.Value.Date;
+                    string[] cost = costNumLabel.Text.Split(' ');
+                    int costInt = Convert.ToInt32(cost[0]);
+                    cmd.Parameters.Add("@stoim", OleDbType.Integer).Value = costInt;
                     con.Open();
                     cmd.ExecuteNonQuery();
                     int lastOrderID = 0;
@@ -270,11 +278,31 @@ namespace boxOffice
             {
                 tickets[i].Show();
             }
+            if(perfomanceCombobox.Text == "В эту дату спектакли отсутствуют!")
+            {
+                costNumLabel.Text = "0 руб.";
+                return;
+            }
+            costNumLabel.Text = (value * countNumericUpDown.Value).ToString() + " руб.";
         }
 
         private void ordersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // при двойном клике выводить информацию о заказе
+            int order_id = Convert.ToInt32(ordersDataGridView[0, ordersDataGridView.CurrentRow.Index].Value);
+            DataSet ds = new DataSet();
+            OleDbConnection con = staticVariables.con;
+            con.Open();
+            OleDbCommand cmd = new OleDbCommand("select * from Заказ where [id заказа]=@id", con);
+            cmd.Parameters.Add("@id", OleDbType.Integer).Value = order_id;
+            OleDbDataAdapter adapter = new OleDbDataAdapter();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            ticketsDataGridView.DataSource = dt;
+            con.Close();
+            ticketsDataGridView.Show();
+            backButton.Show();
+            printTicketButton.Show();
         }
         
         public void getPerfomancesNames()
@@ -299,6 +327,7 @@ namespace boxOffice
                 if(perfomanceCombobox.Items.Count == 0)
                 {
                     perfomanceCombobox.Items.Add("В эту дату спектакли отсутствуют!");
+                    costNumLabel.Text = "0 руб.";
                 }
                 perfomanceCombobox.SelectedIndex = 0;
             }
@@ -333,6 +362,131 @@ namespace boxOffice
                 MessageBox.Show("При выполение команды произошла ошибка.\nОшибка: " + ex);
                 con.Close();
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            ticketsDataGridView.Hide();
+            backButton.Hide();
+            printTicketButton.Hide();
+        }
+
+        private void perfomanceCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (perfomanceCombobox.Text == "В эту дату спектакли отсутствуют!")
+                return;
+            OleDbConnection con = staticVariables.con;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select [Цена билета] from Расписание where [id спектакля]=@id", con);
+                cmd.Parameters.Add("@id", OleDbType.Integer).Value = perfomaceIDs[perfomanceCombobox.SelectedIndex];
+                con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    value = reader.GetInt32(0);
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("При выполение команды произошла ошибка.\nОшибка: " + ex);
+                con.Close();
+            }
+            costNumLabel.Text = "0 руб.";
+            costNumLabel.Text = (value * countNumericUpDown.Value).ToString() + " руб.";
+        }
+
+        string theatrename = "";
+        string perfomancename = "";
+        DateTime time;
+
+        public void getNames(int theatreID, int perfomanceID)
+        {
+            OleDbConnection con = staticVariables.con;
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("select Название from Театр where [id театра]=@id", con);
+                cmd.Parameters.Add("@id", OleDbType.Integer).Value = theatreID;
+                OleDbCommand cmd1 = new OleDbCommand("select [Название спектакля] from Репертуар where [id спектакля]=@id", con);
+                cmd1.Parameters.Add("@id", OleDbType.Integer).Value = perfomanceID;
+                con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if(reader.Read())
+                {
+                    theatrename = reader.GetString(0);
+                }
+                reader.Close();
+                OleDbDataReader reader1 = cmd1.ExecuteReader();
+                if(reader1.Read())
+                {
+                    perfomancename = reader1.GetString(0);
+                }
+                reader1.Close();
+                OleDbCommand cmd2 = new OleDbCommand("select [Время начала спектакля] from Расписание where [Дата спектакля]=@date and [id спектакля]=@id", con);
+                cmd2.Parameters.Add("@date", OleDbType.DBDate).Value = ordersDataGridView[4, ordersDataGridView.CurrentRow.Index].Value;
+                cmd2.Parameters.Add("@id", OleDbType.Integer).Value = perfomanceID;
+                OleDbDataReader reader2 = cmd2.ExecuteReader();
+                if(reader2.Read())
+                {
+                    time = reader2.GetDateTime(0);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("При выполение команды произошла ошибка.\nОшибка: " + ex);
+                con.Close();
+            }
+        }
+
+        private void printTicketButton_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Open(@"C:\Users\Никита\Desktop\Учеба\diplom\Диплом\boxOffice\boxOffice\resources\ticket.xlsx");
+            Excel.Worksheet worksheet = excelApp.ActiveSheet;
+            worksheet.Cells[3, 2] = ticketsDataGridView[0, ticketsDataGridView.CurrentRow.Index].Value;
+            worksheet.Cells[3, 9] = ticketsDataGridView[0, ticketsDataGridView.CurrentRow.Index].Value;
+            getNames(Convert.ToInt32(ordersDataGridView[2, ordersDataGridView.CurrentRow.Index].Value), Convert.ToInt32(ordersDataGridView[1, ordersDataGridView.CurrentRow.Index].Value));
+            worksheet.Cells[5, 2] = theatrename;
+            worksheet.Cells[7, 2] = perfomancename;
+            worksheet.Cells[3, 5] = ordersDataGridView[4, ordersDataGridView.CurrentRow.Index].Value;
+            worksheet.Cells[3, 7] = time.ToShortTimeString();
+            excelApp.Visible = true;
+            excelApp.UserControl = true;
+        }
+
+        private void ordersReportButton_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook;
+            Excel.Worksheet worksheet;
+            workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            worksheet = (Excel.Worksheet)workbook.Sheets[1];
+            worksheet.Cells[1, 1] = ordersDataGridView.Columns[0].HeaderText;
+            worksheet.Cells[1, 2] = ordersDataGridView.Columns[1].HeaderText;
+            worksheet.Cells[1, 3] = ordersDataGridView.Columns[2].HeaderText;
+            worksheet.Cells[1, 4] = ordersDataGridView.Columns[3].HeaderText;
+            worksheet.Cells[1, 5] = ordersDataGridView.Columns[4].HeaderText;
+            worksheet.Cells[1, 6] = ordersDataGridView.Columns[5].HeaderText;
+            int i = 0;
+            int summ = 0;
+            for (i = 0; i < ordersDataGridView.Rows.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1] = ordersDataGridView[0, i].Value;
+                worksheet.Cells[i + 2, 2] = ordersDataGridView[1, i].Value;
+                worksheet.Cells[i + 2, 3] = ordersDataGridView[2, i].Value;
+                worksheet.Cells[i + 2, 4] = ordersDataGridView[3, i].Value;
+                worksheet.Cells[i + 2, 5] = ordersDataGridView[4, i].Value;
+                worksheet.Cells[i + 2, 6] = ordersDataGridView[5, i].Value;
+                summ += Convert.ToInt32(ordersDataGridView[5, i].Value);
+            }
+            worksheet.Cells[i + 2, 5] = "Итого:";
+            worksheet.Cells[i + 2, 6] = summ;
+            worksheet.Columns.AutoFit();
+            excelApp.Visible = true;
+            excelApp.UserControl = true;
         }
     }
 }

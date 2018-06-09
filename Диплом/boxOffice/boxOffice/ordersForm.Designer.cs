@@ -33,6 +33,8 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.ordersPanel = new System.Windows.Forms.Panel();
+            this.costNumLabel = new System.Windows.Forms.Label();
+            this.costLabel = new System.Windows.Forms.Label();
             this.ticket6 = new System.Windows.Forms.GroupBox();
             this.seatTicket6NUD = new System.Windows.Forms.NumericUpDown();
             this.rowTicket6NUD = new System.Windows.Forms.NumericUpDown();
@@ -72,6 +74,11 @@
             this.perfomanceCombobox = new System.Windows.Forms.ComboBox();
             this.perfomanceLabel = new System.Windows.Forms.Label();
             this.headerLabel = new System.Windows.Forms.Label();
+            this.ticketsDataGridView = new System.Windows.Forms.DataGridView();
+            this.backButton = new System.Windows.Forms.Button();
+            this.hintLabel = new System.Windows.Forms.Label();
+            this.printTicketButton = new System.Windows.Forms.Button();
+            this.ordersReportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
             this.ordersPanel.SuspendLayout();
             this.ticket6.SuspendLayout();
@@ -93,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.seatTicket1NUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rowTicket1NUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ordersDataGridView
@@ -111,7 +119,7 @@
             // 
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteButton.Location = new System.Drawing.Point(205, 226);
+            this.deleteButton.Location = new System.Drawing.Point(205, 246);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(187, 57);
             this.deleteButton.TabIndex = 10;
@@ -123,7 +131,7 @@
             // 
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addButton.Location = new System.Drawing.Point(12, 226);
+            this.addButton.Location = new System.Drawing.Point(12, 246);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(187, 57);
             this.addButton.TabIndex = 8;
@@ -133,6 +141,8 @@
             // 
             // ordersPanel
             // 
+            this.ordersPanel.Controls.Add(this.costNumLabel);
+            this.ordersPanel.Controls.Add(this.costLabel);
             this.ordersPanel.Controls.Add(this.ticket6);
             this.ordersPanel.Controls.Add(this.ticket5);
             this.ordersPanel.Controls.Add(this.ticket4);
@@ -148,10 +158,31 @@
             this.ordersPanel.Controls.Add(this.perfomanceCombobox);
             this.ordersPanel.Controls.Add(this.perfomanceLabel);
             this.ordersPanel.Controls.Add(this.headerLabel);
-            this.ordersPanel.Location = new System.Drawing.Point(12, 9);
+            this.ordersPanel.Location = new System.Drawing.Point(12, 12);
             this.ordersPanel.Name = "ordersPanel";
-            this.ordersPanel.Size = new System.Drawing.Size(677, 413);
+            this.ordersPanel.Size = new System.Drawing.Size(677, 456);
             this.ordersPanel.TabIndex = 11;
+            // 
+            // costNumLabel
+            // 
+            this.costNumLabel.AutoSize = true;
+            this.costNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.costNumLabel.Location = new System.Drawing.Point(351, 347);
+            this.costNumLabel.Name = "costNumLabel";
+            this.costNumLabel.Size = new System.Drawing.Size(88, 31);
+            this.costNumLabel.TabIndex = 22;
+            this.costNumLabel.Text = "0 руб.";
+            this.costNumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // costLabel
+            // 
+            this.costLabel.AutoSize = true;
+            this.costLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.costLabel.Location = new System.Drawing.Point(192, 347);
+            this.costLabel.Name = "costLabel";
+            this.costLabel.Size = new System.Drawing.Size(158, 31);
+            this.costLabel.TabIndex = 21;
+            this.costLabel.Text = "Стоимость:";
             // 
             // ticket6
             // 
@@ -651,7 +682,7 @@
             // 
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.submitButton.Location = new System.Drawing.Point(330, 342);
+            this.submitButton.Location = new System.Drawing.Point(339, 387);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(139, 57);
             this.submitButton.TabIndex = 9;
@@ -663,7 +694,7 @@
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(184, 342);
+            this.cancelButton.Location = new System.Drawing.Point(193, 387);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(139, 57);
             this.cancelButton.TabIndex = 8;
@@ -714,6 +745,7 @@
             this.perfomanceCombobox.Name = "perfomanceCombobox";
             this.perfomanceCombobox.Size = new System.Drawing.Size(542, 28);
             this.perfomanceCombobox.TabIndex = 2;
+            this.perfomanceCombobox.SelectedIndexChanged += new System.EventHandler(this.perfomanceCombobox_SelectedIndexChanged);
             // 
             // perfomanceLabel
             // 
@@ -735,16 +767,77 @@
             this.headerLabel.TabIndex = 0;
             this.headerLabel.Text = "action";
             // 
+            // ticketsDataGridView
+            // 
+            this.ticketsDataGridView.AllowUserToAddRows = false;
+            this.ticketsDataGridView.AllowUserToDeleteRows = false;
+            this.ticketsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ticketsDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.ticketsDataGridView.Name = "ticketsDataGridView";
+            this.ticketsDataGridView.ReadOnly = true;
+            this.ticketsDataGridView.Size = new System.Drawing.Size(677, 208);
+            this.ticketsDataGridView.TabIndex = 12;
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.backButton.Location = new System.Drawing.Point(501, 246);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(187, 57);
+            this.backButton.TabIndex = 13;
+            this.backButton.Text = "Назад";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // hintLabel
+            // 
+            this.hintLabel.AutoSize = true;
+            this.hintLabel.Location = new System.Drawing.Point(12, 227);
+            this.hintLabel.Name = "hintLabel";
+            this.hintLabel.Size = new System.Drawing.Size(391, 13);
+            this.hintLabel.TabIndex = 14;
+            this.hintLabel.Text = "Чтобы увидеть список билетов, сделайте двойной клик по нужному заказу";
+            // 
+            // printTicketButton
+            // 
+            this.printTicketButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
+            this.printTicketButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.printTicketButton.Location = new System.Drawing.Point(501, 309);
+            this.printTicketButton.Name = "printTicketButton";
+            this.printTicketButton.Size = new System.Drawing.Size(187, 57);
+            this.printTicketButton.TabIndex = 15;
+            this.printTicketButton.Text = "Распечатать билет";
+            this.printTicketButton.UseVisualStyleBackColor = false;
+            this.printTicketButton.Click += new System.EventHandler(this.printTicketButton_Click);
+            // 
+            // ordersReportButton
+            // 
+            this.ordersReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
+            this.ordersReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ordersReportButton.Location = new System.Drawing.Point(12, 309);
+            this.ordersReportButton.Name = "ordersReportButton";
+            this.ordersReportButton.Size = new System.Drawing.Size(380, 57);
+            this.ordersReportButton.TabIndex = 21;
+            this.ordersReportButton.Text = "Создать полный отчет \r\nо приобретенных билетах";
+            this.ordersReportButton.UseVisualStyleBackColor = false;
+            this.ordersReportButton.Click += new System.EventHandler(this.ordersReportButton_Click);
+            // 
             // ordersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(700, 434);
+            this.ClientSize = new System.Drawing.Size(700, 477);
             this.Controls.Add(this.ordersPanel);
+            this.Controls.Add(this.ordersReportButton);
+            this.Controls.Add(this.printTicketButton);
+            this.Controls.Add(this.hintLabel);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
+            this.Controls.Add(this.ticketsDataGridView);
             this.Controls.Add(this.ordersDataGridView);
+            this.Controls.Add(this.backButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -779,7 +872,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.seatTicket1NUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rowTicket1NUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -828,5 +923,12 @@
         private System.Windows.Forms.NumericUpDown rowTicket1NUD;
         private System.Windows.Forms.Label seatTicket1Label;
         private System.Windows.Forms.Label rowTicket1Label;
+        private System.Windows.Forms.DataGridView ticketsDataGridView;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label costNumLabel;
+        private System.Windows.Forms.Label costLabel;
+        private System.Windows.Forms.Label hintLabel;
+        private System.Windows.Forms.Button printTicketButton;
+        private System.Windows.Forms.Button ordersReportButton;
     }
 }

@@ -52,6 +52,13 @@
             this.findTextbox = new System.Windows.Forms.TextBox();
             this.findLabel = new System.Windows.Forms.Label();
             this.fieldsCombobox = new System.Windows.Forms.ComboBox();
+            this.scheduleReportButton = new System.Windows.Forms.Button();
+            this.resetFilterButton = new System.Windows.Forms.Button();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.filterTextbox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.filterCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).BeginInit();
             this.schedulePanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +67,7 @@
             // 
             this.scheduleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.scheduleDataGridView.Location = new System.Drawing.Point(9, 10);
-            this.scheduleDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scheduleDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.scheduleDataGridView.Name = "scheduleDataGridView";
             this.scheduleDataGridView.RowTemplate.Height = 24;
             this.scheduleDataGridView.Size = new System.Drawing.Size(918, 242);
@@ -117,10 +124,10 @@
             this.schedulePanel.Controls.Add(this.submitButton);
             this.schedulePanel.Controls.Add(this.cancelButton);
             this.schedulePanel.Controls.Add(this.headerLabel);
-            this.schedulePanel.Location = new System.Drawing.Point(9, 9);
-            this.schedulePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.schedulePanel.Location = new System.Drawing.Point(9, 10);
+            this.schedulePanel.Margin = new System.Windows.Forms.Padding(2);
             this.schedulePanel.Name = "schedulePanel";
-            this.schedulePanel.Size = new System.Drawing.Size(918, 362);
+            this.schedulePanel.Size = new System.Drawing.Size(918, 412);
             this.schedulePanel.TabIndex = 7;
             // 
             // perfomanceEndsLabel
@@ -261,7 +268,7 @@
             // 
             this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findButton.Location = new System.Drawing.Point(786, 329);
-            this.findButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.findButton.Margin = new System.Windows.Forms.Padding(2);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(124, 27);
             this.findButton.TabIndex = 14;
@@ -284,7 +291,7 @@
             // 
             this.findTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findTextbox.Location = new System.Drawing.Point(73, 330);
-            this.findTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.findTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.findTextbox.Name = "findTextbox";
             this.findTextbox.Size = new System.Drawing.Size(260, 26);
             this.findTextbox.TabIndex = 12;
@@ -306,18 +313,102 @@
             this.fieldsCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fieldsCombobox.FormattingEnabled = true;
             this.fieldsCombobox.Location = new System.Drawing.Point(395, 329);
-            this.fieldsCombobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fieldsCombobox.Margin = new System.Windows.Forms.Padding(2);
             this.fieldsCombobox.Name = "fieldsCombobox";
             this.fieldsCombobox.Size = new System.Drawing.Size(388, 28);
             this.fieldsCombobox.TabIndex = 10;
+            // 
+            // scheduleReportButton
+            // 
+            this.scheduleReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
+            this.scheduleReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.scheduleReportButton.Location = new System.Drawing.Point(443, 258);
+            this.scheduleReportButton.Name = "scheduleReportButton";
+            this.scheduleReportButton.Size = new System.Drawing.Size(216, 57);
+            this.scheduleReportButton.TabIndex = 15;
+            this.scheduleReportButton.Text = "Создать полный отчет\r\nо расписании";
+            this.scheduleReportButton.UseVisualStyleBackColor = false;
+            this.scheduleReportButton.Click += new System.EventHandler(this.scheduleReportButton_Click);
+            // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.resetFilterButton.Location = new System.Drawing.Point(17, 395);
+            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(2);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(198, 27);
+            this.resetFilterButton.TabIndex = 32;
+            this.resetFilterButton.Text = "Очистить фильтр";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.resetFilterButton_Click);
+            // 
+            // filterButton
+            // 
+            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterButton.Location = new System.Drawing.Point(785, 362);
+            this.filterButton.Margin = new System.Windows.Forms.Padding(2);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(124, 27);
+            this.filterButton.TabIndex = 31;
+            this.filterButton.Text = "Фильтр";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(335, 366);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "в поле";
+            // 
+            // filterTextbox
+            // 
+            this.filterTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterTextbox.Location = new System.Drawing.Point(90, 363);
+            this.filterTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.filterTextbox.Name = "filterTextbox";
+            this.filterTextbox.Size = new System.Drawing.Size(242, 26);
+            this.filterTextbox.TabIndex = 29;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(16, 366);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Фильтр";
+            // 
+            // filterCombobox
+            // 
+            this.filterCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterCombobox.FormattingEnabled = true;
+            this.filterCombobox.Location = new System.Drawing.Point(394, 362);
+            this.filterCombobox.Margin = new System.Windows.Forms.Padding(2);
+            this.filterCombobox.Name = "filterCombobox";
+            this.filterCombobox.Size = new System.Drawing.Size(388, 28);
+            this.filterCombobox.TabIndex = 27;
             // 
             // scheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(936, 379);
+            this.ClientSize = new System.Drawing.Size(936, 433);
             this.Controls.Add(this.schedulePanel);
+            this.Controls.Add(this.resetFilterButton);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.filterTextbox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.filterCombobox);
             this.Controls.Add(this.findButton);
             this.Controls.Add(this.inFieldLabel);
             this.Controls.Add(this.findTextbox);
@@ -327,9 +418,10 @@
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.scheduleDataGridView);
+            this.Controls.Add(this.scheduleReportButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "scheduleForm";
             this.Text = "Расписание";
@@ -367,5 +459,12 @@
         private System.Windows.Forms.TextBox findTextbox;
         private System.Windows.Forms.Label findLabel;
         private System.Windows.Forms.ComboBox fieldsCombobox;
+        private System.Windows.Forms.Button scheduleReportButton;
+        private System.Windows.Forms.Button resetFilterButton;
+        private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox filterTextbox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox filterCombobox;
     }
 }

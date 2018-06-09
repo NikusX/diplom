@@ -75,6 +75,12 @@
             this.inFieldLabel = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.repertoireReportButton = new System.Windows.Forms.Button();
+            this.resetFilterButton = new System.Windows.Forms.Button();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.filterInFieldLabel = new System.Windows.Forms.Label();
+            this.filterTextbox = new System.Windows.Forms.TextBox();
+            this.filterLabel = new System.Windows.Forms.Label();
+            this.filterCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.repertoireDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.репертуарBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxOfficeDBDataSet)).BeginInit();
@@ -222,7 +228,7 @@
             this.repertoirePanel.Controls.Add(this.perfomanceNameTextbox);
             this.repertoirePanel.Controls.Add(this.headerLabel);
             this.repertoirePanel.Controls.Add(this.theatreLabel);
-            this.repertoirePanel.Location = new System.Drawing.Point(4, 10);
+            this.repertoirePanel.Location = new System.Drawing.Point(9, 10);
             this.repertoirePanel.Name = "repertoirePanel";
             this.repertoirePanel.Size = new System.Drawing.Size(986, 601);
             this.repertoirePanel.TabIndex = 2;
@@ -523,13 +529,85 @@
             this.repertoireReportButton.UseVisualStyleBackColor = false;
             this.repertoireReportButton.Click += new System.EventHandler(this.repertoireReportButton_Click);
             // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.resetFilterButton.Location = new System.Drawing.Point(10, 380);
+            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(2);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(198, 27);
+            this.resetFilterButton.TabIndex = 32;
+            this.resetFilterButton.Text = "Очистить фильтр";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.resetFilterButton_Click);
+            // 
+            // filterButton
+            // 
+            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterButton.Location = new System.Drawing.Point(778, 347);
+            this.filterButton.Margin = new System.Windows.Forms.Padding(2);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(124, 27);
+            this.filterButton.TabIndex = 31;
+            this.filterButton.Text = "Фильтр";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // filterInFieldLabel
+            // 
+            this.filterInFieldLabel.AutoSize = true;
+            this.filterInFieldLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterInFieldLabel.Location = new System.Drawing.Point(328, 351);
+            this.filterInFieldLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.filterInFieldLabel.Name = "filterInFieldLabel";
+            this.filterInFieldLabel.Size = new System.Drawing.Size(59, 20);
+            this.filterInFieldLabel.TabIndex = 30;
+            this.filterInFieldLabel.Text = "в поле";
+            // 
+            // filterTextbox
+            // 
+            this.filterTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterTextbox.Location = new System.Drawing.Point(83, 348);
+            this.filterTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.filterTextbox.Name = "filterTextbox";
+            this.filterTextbox.Size = new System.Drawing.Size(242, 26);
+            this.filterTextbox.TabIndex = 29;
+            // 
+            // filterLabel
+            // 
+            this.filterLabel.AutoSize = true;
+            this.filterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterLabel.Location = new System.Drawing.Point(9, 351);
+            this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.filterLabel.Name = "filterLabel";
+            this.filterLabel.Size = new System.Drawing.Size(70, 20);
+            this.filterLabel.TabIndex = 28;
+            this.filterLabel.Text = "Фильтр";
+            // 
+            // filterCombobox
+            // 
+            this.filterCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterCombobox.FormattingEnabled = true;
+            this.filterCombobox.Location = new System.Drawing.Point(387, 347);
+            this.filterCombobox.Margin = new System.Windows.Forms.Padding(2);
+            this.filterCombobox.Name = "filterCombobox";
+            this.filterCombobox.Size = new System.Drawing.Size(388, 28);
+            this.filterCombobox.TabIndex = 27;
+            // 
             // repertoireForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(999, 469);
+            this.ClientSize = new System.Drawing.Size(999, 416);
             this.Controls.Add(this.repertoirePanel);
+            this.Controls.Add(this.resetFilterButton);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.filterInFieldLabel);
+            this.Controls.Add(this.filterTextbox);
+            this.Controls.Add(this.filterLabel);
+            this.Controls.Add(this.filterCombobox);
             this.Controls.Add(this.repertoireReportButton);
             this.Controls.Add(this.findButton);
             this.Controls.Add(this.inFieldLabel);
@@ -604,5 +682,11 @@
         private System.Windows.Forms.Label inFieldLabel;
         private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.Button repertoireReportButton;
+        private System.Windows.Forms.Button resetFilterButton;
+        private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.Label filterInFieldLabel;
+        private System.Windows.Forms.TextBox filterTextbox;
+        private System.Windows.Forms.Label filterLabel;
+        private System.Windows.Forms.ComboBox filterCombobox;
     }
 }

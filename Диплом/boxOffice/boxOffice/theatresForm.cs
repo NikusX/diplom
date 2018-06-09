@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace boxOffice
 {
@@ -30,6 +31,7 @@ namespace boxOffice
             DataTable dt = ds.Tables[0];
             theatresDataGridView.DataSource = dt;
             con.Close();
+            theatresDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         public void clearFields()
@@ -47,8 +49,10 @@ namespace boxOffice
             for (int i = 0; i < theatresDataGridView.Columns.Count; i++)
             {
                 fieldsCombobox.Items.Add(theatresDataGridView.Columns[i].HeaderText);
+                filterCombobox.Items.Add(theatresDataGridView.Columns[i].HeaderText);
             }
             fieldsCombobox.SelectedIndex = 0;
+            filterCombobox.SelectedIndex = 0;
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -186,6 +190,37 @@ namespace boxOffice
             {
                 MessageBox.Show("Не удалось найти введенное значение.");
             }
+        }
+
+        private void theatresReportButton_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook;
+            Excel.Worksheet worksheet;
+            workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            worksheet = (Excel.Worksheet)workbook.Sheets[1];
+            worksheet.Cells[1, 1] = theatresDataGridView.Columns[0].HeaderText;
+            worksheet.Cells[1, 2] = theatresDataGridView.Columns[1].HeaderText;
+            worksheet.Cells[1, 3] = theatresDataGridView.Columns[2].HeaderText;
+            for (int i = 0; i < theatresDataGridView.Rows.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1] = theatresDataGridView[0, i].Value;
+                worksheet.Cells[i + 2, 2] = theatresDataGridView[1, i].Value;
+                worksheet.Cells[i + 2, 3] = theatresDataGridView[2, i].Value;
+            }
+            worksheet.Columns.AutoFit();
+            excelApp.Visible = true;
+            excelApp.UserControl = true;
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            (theatresDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format("[" + filterCombobox.Text.ToString() + "]" + " = '{0}'", filterTextbox.Text);
+        }
+
+        private void resetFilterButton_Click(object sender, EventArgs e)
+        {
+            (theatresDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
         }
     }
 }
