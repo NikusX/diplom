@@ -90,6 +90,7 @@ namespace boxOffice
                     MessageBox.Show("Не удалось добавить данные.\nОшибка: " + ex.Message);
                     con.Close();
                 }
+                clearFields();
             }
             if(submitButton.Text == "Изменить")
             {
@@ -113,6 +114,7 @@ namespace boxOffice
                     MessageBox.Show("Не удалось изменить данные.\nОшибка: " + ex.Message);
                     con.Close();
                 }
+                clearFields();
             }
         }
 
