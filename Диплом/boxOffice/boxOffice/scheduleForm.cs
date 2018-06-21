@@ -115,7 +115,7 @@ namespace boxOffice
             submitButton.Text = "Изменить";
             OleDbConnection con = staticVariables.con;
             int scheduleID = Convert.ToInt32(scheduleDataGridView[0, scheduleDataGridView.CurrentRow.Index].Value);
-            int perfomance_id = Convert.ToInt32(scheduleDataGridView[1, scheduleDataGridView.CurrentRow.Index].Value);
+            int perfomance_id = Convert.ToInt32(scheduleDataGridView[2, scheduleDataGridView.CurrentRow.Index].Value);
             getPerfomanceName(perfomance_id);
             try
             {
@@ -126,9 +126,9 @@ namespace boxOffice
                 if (reader.Read())
                 {
                     perfomancesCombobox.Text = perfomanceName;
-                    perfomanceDateTimePicker.Value = reader.GetDateTime(3);
-                    perfomanceStartsDateTimePicker.Value = reader.GetDateTime(4);
-                    perfomanceEndsDateTimePicker.Value = reader.GetDateTime(5);
+                    perfomanceDateTimePicker.Value = reader.GetDateTime(4);
+                    perfomanceStartsDateTimePicker.Value = reader.GetDateTime(5);
+                    perfomanceEndsDateTimePicker.Value = reader.GetDateTime(6);
                 }
                 reader.Close();
                 con.Close();
@@ -254,13 +254,15 @@ namespace boxOffice
                 {
                     getPerfomanceID();
                     getTheatreID();
-                    OleDbCommand cmd = new OleDbCommand("insert into Расписание ([id спектакля], [id театра], [Дата спектакля], [Время начала спектакля], [Время окончания спектакля]) " +
-                    "values (@perfomanceid, @theatreid, @perfomancedate, @starttime, @endtime)", con);
+                    OleDbCommand cmd = new OleDbCommand("insert into Расписание ([Название спектакля], [id спектакля], [id театра], [Дата спектакля], [Время начала спектакля], [Время окончания спектакля], [Цена билета]) " +
+                    "values (@perfomancename, @perfomanceid, @theatreid, @perfomancedate, @starttime, @endtime, @cena)", con);
+                    cmd.Parameters.Add("@perfomancename", OleDbType.VarChar).Value = perfomancesCombobox.Text;
                     cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomanceID;
                     cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreId;
                     cmd.Parameters.Add("@perfomancedate", OleDbType.DBDate).Value = perfomanceDateTimePicker.Value.ToShortDateString();
                     cmd.Parameters.Add("@starttime", OleDbType.DBTimeStamp).Value = perfomanceDateTimePicker.Value.Date + perfomanceStartsDateTimePicker.Value.TimeOfDay;
                     cmd.Parameters.Add("@endtime", OleDbType.DBTimeStamp).Value = perfomanceDateTimePicker.Value.Date + perfomanceEndsDateTimePicker.Value.TimeOfDay;
+                    cmd.Parameters.Add("@cena", OleDbType.Integer).Value = Convert.ToInt32(ticketCostTextbox.Text);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Данные успешно добавлены.");
@@ -284,7 +286,8 @@ namespace boxOffice
                 {
                     getPerfomanceID();
                     getTheatreID();
-                    OleDbCommand cmd = new OleDbCommand("update Расписание set [id спектакля]=@perfomanceid, [id театра]=@theatreid, [Дата спектакля]=@perfomacedate, [Время начала спектакля]=@perfomancestarts, [Время окончания спектакля]=perfomanceends where id=@id", con);
+                    OleDbCommand cmd = new OleDbCommand("update Расписание set [Название спектакля]=@perfomancename, [id спектакля]=@perfomanceid, [id театра]=@theatreid, [Дата спектакля]=@perfomacedate, [Время начала спектакля]=@perfomancestarts, [Время окончания спектакля]=perfomanceends where id=@id", con);
+                    cmd.Parameters.Add("@perfomancename", OleDbType.VarChar).Value = perfomancesCombobox.Text;
                     cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomanceID;
                     cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreId;
                     cmd.Parameters.Add("@perfomancedate", OleDbType.DBDate).Value = perfomanceDateTimePicker.Value.ToShortDateString();
@@ -299,7 +302,7 @@ namespace boxOffice
                     clearFields();
                     base_load();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Не удалось изменить данные.\nОшибка: " + ex.Message);
                     con.Close();

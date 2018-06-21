@@ -95,6 +95,13 @@ namespace boxOffice
             perfomanceCombobox.SelectedIndex = 0;
             backButton.Hide();
             printTicketButton.Hide();
+            for (int i = 0; i < ordersDataGridView.Columns.Count; i++)
+            {
+                fieldsCombobox.Items.Add(ordersDataGridView.Columns[i].HeaderText);
+                filterCombobox.Items.Add(ordersDataGridView.Columns[i].HeaderText);
+            }
+            fieldsCombobox.SelectedIndex = 0;
+            filterCombobox.SelectedIndex = 0;
         }
 
         int count = 0;
@@ -229,8 +236,9 @@ namespace boxOffice
                     return;
                 try
                 {
-                    OleDbCommand cmd = new OleDbCommand("insert into Заказы ([id спектакля], [id театра], [Количество билетов], [Дата спектакля], Стоимость) values (@perfomanceid, @theatreid, @count, @date, @stoim)", con);
+                    OleDbCommand cmd = new OleDbCommand("insert into Заказы ([id спектакля], [Название спектакля], [id театра], [Количество билетов], [Дата спектакля], Стоимость) values (@perfomanceid, @perfomancename, @theatreid, @count, @date, @stoim)", con);
                     cmd.Parameters.Add("@perfomanceid", OleDbType.Integer).Value = perfomaceIDs[perfomanceCombobox.SelectedIndex];
+                    cmd.Parameters.Add("@perfomancename", OleDbType.VarChar).Value = perfomanceCombobox.Text;
                     cmd.Parameters.Add("@theatreid", OleDbType.Integer).Value = theatreIDs[perfomanceCombobox.SelectedIndex];
                     cmd.Parameters.Add("@count", OleDbType.Integer).Value = countNumericUpDown.Value;
                     cmd.Parameters.Add("@date", OleDbType.DBDate).Value = perfomanceDateTimePicker.Value.Date;
@@ -470,6 +478,7 @@ namespace boxOffice
             worksheet.Cells[1, 4] = ordersDataGridView.Columns[3].HeaderText;
             worksheet.Cells[1, 5] = ordersDataGridView.Columns[4].HeaderText;
             worksheet.Cells[1, 6] = ordersDataGridView.Columns[5].HeaderText;
+            worksheet.Cells[1, 7] = ordersDataGridView.Columns[6].HeaderText;
             int i = 0;
             int summ = 0;
             for (i = 0; i < ordersDataGridView.Rows.Count; i++)
@@ -480,13 +489,43 @@ namespace boxOffice
                 worksheet.Cells[i + 2, 4] = ordersDataGridView[3, i].Value;
                 worksheet.Cells[i + 2, 5] = ordersDataGridView[4, i].Value;
                 worksheet.Cells[i + 2, 6] = ordersDataGridView[5, i].Value;
-                summ += Convert.ToInt32(ordersDataGridView[5, i].Value);
+                worksheet.Cells[i + 2, 7] = ordersDataGridView[6, i].Value;
+                summ += Convert.ToInt32(ordersDataGridView[6, i].Value);
             }
-            worksheet.Cells[i + 2, 5] = "Итого:";
-            worksheet.Cells[i + 2, 6] = summ;
+            worksheet.Cells[i + 2, 6] = "Итого:";
+            worksheet.Cells[i + 2, 7] = summ;
             worksheet.Columns.AutoFit();
             excelApp.Visible = true;
             excelApp.UserControl = true;
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < ordersDataGridView.Rows.Count; i++)
+                {
+                    if (ordersDataGridView[fieldsCombobox.SelectedIndex, i].Value.ToString() == findTextbox.Text)
+                    {
+                        ordersDataGridView.CurrentCell = ordersDataGridView[fieldsCombobox.SelectedIndex, i];
+                        return;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось найти введенное значение.");
+            }
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            (ordersDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format("[" + filterCombobox.Text.ToString() + "]" + " = '{0}'", filterTextbox.Text);
+        }
+
+        private void resetFilterButton_Click(object sender, EventArgs e)
+        {
+            (ordersDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
         }
     }
 }

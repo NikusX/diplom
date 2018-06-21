@@ -79,6 +79,17 @@
             this.hintLabel = new System.Windows.Forms.Label();
             this.printTicketButton = new System.Windows.Forms.Button();
             this.ordersReportButton = new System.Windows.Forms.Button();
+            this.resetFilterButton = new System.Windows.Forms.Button();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.filterInFieldLabel = new System.Windows.Forms.Label();
+            this.filterTextbox = new System.Windows.Forms.TextBox();
+            this.filterLabel = new System.Windows.Forms.Label();
+            this.filterCombobox = new System.Windows.Forms.ComboBox();
+            this.findButton = new System.Windows.Forms.Button();
+            this.inFieldLabel = new System.Windows.Forms.Label();
+            this.findTextbox = new System.Windows.Forms.TextBox();
+            this.findLabel = new System.Windows.Forms.Label();
+            this.fieldsCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
             this.ordersPanel.SuspendLayout();
             this.ticket6.SuspendLayout();
@@ -111,7 +122,7 @@
             this.ordersDataGridView.Location = new System.Drawing.Point(12, 12);
             this.ordersDataGridView.Name = "ordersDataGridView";
             this.ordersDataGridView.ReadOnly = true;
-            this.ordersDataGridView.Size = new System.Drawing.Size(677, 208);
+            this.ordersDataGridView.Size = new System.Drawing.Size(892, 208);
             this.ordersDataGridView.TabIndex = 0;
             this.ordersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ordersDataGridView_CellDoubleClick);
             // 
@@ -160,14 +171,14 @@
             this.ordersPanel.Controls.Add(this.headerLabel);
             this.ordersPanel.Location = new System.Drawing.Point(12, 12);
             this.ordersPanel.Name = "ordersPanel";
-            this.ordersPanel.Size = new System.Drawing.Size(677, 456);
+            this.ordersPanel.Size = new System.Drawing.Size(892, 453);
             this.ordersPanel.TabIndex = 11;
             // 
             // costNumLabel
             // 
             this.costNumLabel.AutoSize = true;
             this.costNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.costNumLabel.Location = new System.Drawing.Point(351, 347);
+            this.costNumLabel.Location = new System.Drawing.Point(434, 347);
             this.costNumLabel.Name = "costNumLabel";
             this.costNumLabel.Size = new System.Drawing.Size(88, 31);
             this.costNumLabel.TabIndex = 22;
@@ -178,7 +189,7 @@
             // 
             this.costLabel.AutoSize = true;
             this.costLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.costLabel.Location = new System.Drawing.Point(192, 347);
+            this.costLabel.Location = new System.Drawing.Point(275, 347);
             this.costLabel.Name = "costLabel";
             this.costLabel.Size = new System.Drawing.Size(158, 31);
             this.costLabel.TabIndex = 21;
@@ -190,7 +201,7 @@
             this.ticket6.Controls.Add(this.rowTicket6NUD);
             this.ticket6.Controls.Add(this.seatTicket6Label);
             this.ticket6.Controls.Add(this.rowTicket6Label);
-            this.ticket6.Location = new System.Drawing.Point(451, 244);
+            this.ticket6.Location = new System.Drawing.Point(534, 244);
             this.ticket6.Name = "ticket6";
             this.ticket6.Size = new System.Drawing.Size(213, 92);
             this.ticket6.TabIndex = 20;
@@ -269,7 +280,7 @@
             this.ticket5.Controls.Add(this.rowTicket5NUD);
             this.ticket5.Controls.Add(this.seatTicket5Label);
             this.ticket5.Controls.Add(this.rowTicket5Label);
-            this.ticket5.Location = new System.Drawing.Point(232, 244);
+            this.ticket5.Location = new System.Drawing.Point(315, 244);
             this.ticket5.Name = "ticket5";
             this.ticket5.Size = new System.Drawing.Size(213, 92);
             this.ticket5.TabIndex = 18;
@@ -348,7 +359,7 @@
             this.ticket4.Controls.Add(this.rowTicket4NUD);
             this.ticket4.Controls.Add(this.seatTicket4Label);
             this.ticket4.Controls.Add(this.rowTicket4Label);
-            this.ticket4.Location = new System.Drawing.Point(13, 244);
+            this.ticket4.Location = new System.Drawing.Point(96, 244);
             this.ticket4.Name = "ticket4";
             this.ticket4.Size = new System.Drawing.Size(213, 92);
             this.ticket4.TabIndex = 19;
@@ -427,7 +438,7 @@
             this.ticket3.Controls.Add(this.rowTicket3NUD);
             this.ticket3.Controls.Add(this.seatTicket3Label);
             this.ticket3.Controls.Add(this.rowTicket3Label);
-            this.ticket3.Location = new System.Drawing.Point(451, 146);
+            this.ticket3.Location = new System.Drawing.Point(534, 146);
             this.ticket3.Name = "ticket3";
             this.ticket3.Size = new System.Drawing.Size(213, 92);
             this.ticket3.TabIndex = 18;
@@ -506,7 +517,7 @@
             this.ticket2.Controls.Add(this.rowTicket2NUD);
             this.ticket2.Controls.Add(this.seatTicket2Label);
             this.ticket2.Controls.Add(this.rowTicket2Label);
-            this.ticket2.Location = new System.Drawing.Point(232, 146);
+            this.ticket2.Location = new System.Drawing.Point(315, 146);
             this.ticket2.Name = "ticket2";
             this.ticket2.Size = new System.Drawing.Size(213, 92);
             this.ticket2.TabIndex = 18;
@@ -585,7 +596,7 @@
             this.ticket1.Controls.Add(this.rowTicket1NUD);
             this.ticket1.Controls.Add(this.seatTicket1Label);
             this.ticket1.Controls.Add(this.rowTicket1Label);
-            this.ticket1.Location = new System.Drawing.Point(13, 146);
+            this.ticket1.Location = new System.Drawing.Point(96, 146);
             this.ticket1.Name = "ticket1";
             this.ticket1.Size = new System.Drawing.Size(213, 92);
             this.ticket1.TabIndex = 17;
@@ -662,7 +673,7 @@
             // 
             this.perfomanceDateLabel.AutoSize = true;
             this.perfomanceDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomanceDateLabel.Location = new System.Drawing.Point(13, 52);
+            this.perfomanceDateLabel.Location = new System.Drawing.Point(96, 52);
             this.perfomanceDateLabel.Name = "perfomanceDateLabel";
             this.perfomanceDateLabel.Size = new System.Drawing.Size(131, 20);
             this.perfomanceDateLabel.TabIndex = 15;
@@ -672,7 +683,7 @@
             // 
             this.perfomanceDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.perfomanceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.perfomanceDateTimePicker.Location = new System.Drawing.Point(145, 47);
+            this.perfomanceDateTimePicker.Location = new System.Drawing.Point(228, 47);
             this.perfomanceDateTimePicker.Name = "perfomanceDateTimePicker";
             this.perfomanceDateTimePicker.Size = new System.Drawing.Size(517, 26);
             this.perfomanceDateTimePicker.TabIndex = 14;
@@ -682,7 +693,7 @@
             // 
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.submitButton.Location = new System.Drawing.Point(339, 387);
+            this.submitButton.Location = new System.Drawing.Point(422, 387);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(139, 57);
             this.submitButton.TabIndex = 9;
@@ -694,7 +705,7 @@
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(193, 387);
+            this.cancelButton.Location = new System.Drawing.Point(276, 387);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(139, 57);
             this.cancelButton.TabIndex = 8;
@@ -706,7 +717,7 @@
             // 
             this.countLabel.AutoSize = true;
             this.countLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countLabel.Location = new System.Drawing.Point(13, 114);
+            this.countLabel.Location = new System.Drawing.Point(96, 114);
             this.countLabel.Name = "countLabel";
             this.countLabel.Size = new System.Drawing.Size(100, 20);
             this.countLabel.TabIndex = 6;
@@ -715,7 +726,7 @@
             // countNumericUpDown
             // 
             this.countNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countNumericUpDown.Location = new System.Drawing.Point(120, 112);
+            this.countNumericUpDown.Location = new System.Drawing.Point(203, 112);
             this.countNumericUpDown.Maximum = new decimal(new int[] {
             6,
             0,
@@ -741,7 +752,7 @@
             this.perfomanceCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.perfomanceCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.perfomanceCombobox.FormattingEnabled = true;
-            this.perfomanceCombobox.Location = new System.Drawing.Point(120, 78);
+            this.perfomanceCombobox.Location = new System.Drawing.Point(203, 78);
             this.perfomanceCombobox.Name = "perfomanceCombobox";
             this.perfomanceCombobox.Size = new System.Drawing.Size(542, 28);
             this.perfomanceCombobox.TabIndex = 2;
@@ -751,7 +762,7 @@
             // 
             this.perfomanceLabel.AutoSize = true;
             this.perfomanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.perfomanceLabel.Location = new System.Drawing.Point(13, 81);
+            this.perfomanceLabel.Location = new System.Drawing.Point(96, 81);
             this.perfomanceLabel.Name = "perfomanceLabel";
             this.perfomanceLabel.Size = new System.Drawing.Size(91, 20);
             this.perfomanceLabel.TabIndex = 1;
@@ -761,7 +772,7 @@
             // 
             this.headerLabel.AutoSize = true;
             this.headerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerLabel.Location = new System.Drawing.Point(299, 15);
+            this.headerLabel.Location = new System.Drawing.Point(382, 15);
             this.headerLabel.Name = "headerLabel";
             this.headerLabel.Size = new System.Drawing.Size(58, 20);
             this.headerLabel.TabIndex = 0;
@@ -775,14 +786,14 @@
             this.ticketsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.ticketsDataGridView.Name = "ticketsDataGridView";
             this.ticketsDataGridView.ReadOnly = true;
-            this.ticketsDataGridView.Size = new System.Drawing.Size(677, 208);
+            this.ticketsDataGridView.Size = new System.Drawing.Size(892, 208);
             this.ticketsDataGridView.TabIndex = 12;
             // 
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backButton.Location = new System.Drawing.Point(501, 246);
+            this.backButton.Location = new System.Drawing.Point(715, 246);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(187, 57);
             this.backButton.TabIndex = 13;
@@ -803,7 +814,7 @@
             // 
             this.printTicketButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.printTicketButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.printTicketButton.Location = new System.Drawing.Point(501, 309);
+            this.printTicketButton.Location = new System.Drawing.Point(715, 309);
             this.printTicketButton.Name = "printTicketButton";
             this.printTicketButton.Size = new System.Drawing.Size(187, 57);
             this.printTicketButton.TabIndex = 15;
@@ -823,13 +834,144 @@
             this.ordersReportButton.UseVisualStyleBackColor = false;
             this.ordersReportButton.Click += new System.EventHandler(this.ordersReportButton_Click);
             // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.resetFilterButton.Location = new System.Drawing.Point(12, 443);
+            this.resetFilterButton.Margin = new System.Windows.Forms.Padding(2);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(198, 27);
+            this.resetFilterButton.TabIndex = 43;
+            this.resetFilterButton.Text = "Очистить фильтр";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.resetFilterButton_Click);
+            // 
+            // filterButton
+            // 
+            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterButton.Location = new System.Drawing.Point(780, 410);
+            this.filterButton.Margin = new System.Windows.Forms.Padding(2);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(124, 27);
+            this.filterButton.TabIndex = 42;
+            this.filterButton.Text = "Фильтр";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // filterInFieldLabel
+            // 
+            this.filterInFieldLabel.AutoSize = true;
+            this.filterInFieldLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterInFieldLabel.Location = new System.Drawing.Point(330, 414);
+            this.filterInFieldLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.filterInFieldLabel.Name = "filterInFieldLabel";
+            this.filterInFieldLabel.Size = new System.Drawing.Size(59, 20);
+            this.filterInFieldLabel.TabIndex = 41;
+            this.filterInFieldLabel.Text = "в поле";
+            // 
+            // filterTextbox
+            // 
+            this.filterTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterTextbox.Location = new System.Drawing.Point(85, 411);
+            this.filterTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.filterTextbox.Name = "filterTextbox";
+            this.filterTextbox.Size = new System.Drawing.Size(242, 26);
+            this.filterTextbox.TabIndex = 40;
+            // 
+            // filterLabel
+            // 
+            this.filterLabel.AutoSize = true;
+            this.filterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterLabel.Location = new System.Drawing.Point(11, 414);
+            this.filterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.filterLabel.Name = "filterLabel";
+            this.filterLabel.Size = new System.Drawing.Size(70, 20);
+            this.filterLabel.TabIndex = 39;
+            this.filterLabel.Text = "Фильтр";
+            // 
+            // filterCombobox
+            // 
+            this.filterCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterCombobox.FormattingEnabled = true;
+            this.filterCombobox.Location = new System.Drawing.Point(389, 410);
+            this.filterCombobox.Margin = new System.Windows.Forms.Padding(2);
+            this.filterCombobox.Name = "filterCombobox";
+            this.filterCombobox.Size = new System.Drawing.Size(388, 28);
+            this.filterCombobox.TabIndex = 38;
+            // 
+            // findButton
+            // 
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.Location = new System.Drawing.Point(780, 370);
+            this.findButton.Margin = new System.Windows.Forms.Padding(2);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(124, 27);
+            this.findButton.TabIndex = 37;
+            this.findButton.Text = "Найти";
+            this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            // 
+            // inFieldLabel
+            // 
+            this.inFieldLabel.AutoSize = true;
+            this.inFieldLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.inFieldLabel.Location = new System.Drawing.Point(330, 373);
+            this.inFieldLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.inFieldLabel.Name = "inFieldLabel";
+            this.inFieldLabel.Size = new System.Drawing.Size(59, 20);
+            this.inFieldLabel.TabIndex = 36;
+            this.inFieldLabel.Text = "в поле";
+            // 
+            // findTextbox
+            // 
+            this.findTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findTextbox.Location = new System.Drawing.Point(67, 371);
+            this.findTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.findTextbox.Name = "findTextbox";
+            this.findTextbox.Size = new System.Drawing.Size(260, 26);
+            this.findTextbox.TabIndex = 35;
+            // 
+            // findLabel
+            // 
+            this.findLabel.AutoSize = true;
+            this.findLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findLabel.Location = new System.Drawing.Point(11, 373);
+            this.findLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.findLabel.Name = "findLabel";
+            this.findLabel.Size = new System.Drawing.Size(57, 20);
+            this.findLabel.TabIndex = 34;
+            this.findLabel.Text = "Найти";
+            // 
+            // fieldsCombobox
+            // 
+            this.fieldsCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fieldsCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fieldsCombobox.FormattingEnabled = true;
+            this.fieldsCombobox.Location = new System.Drawing.Point(389, 370);
+            this.fieldsCombobox.Margin = new System.Windows.Forms.Padding(2);
+            this.fieldsCombobox.Name = "fieldsCombobox";
+            this.fieldsCombobox.Size = new System.Drawing.Size(388, 28);
+            this.fieldsCombobox.TabIndex = 33;
+            // 
             // ordersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(700, 477);
+            this.ClientSize = new System.Drawing.Size(914, 477);
             this.Controls.Add(this.ordersPanel);
+            this.Controls.Add(this.resetFilterButton);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.filterInFieldLabel);
+            this.Controls.Add(this.filterTextbox);
+            this.Controls.Add(this.filterLabel);
+            this.Controls.Add(this.filterCombobox);
+            this.Controls.Add(this.findButton);
+            this.Controls.Add(this.inFieldLabel);
+            this.Controls.Add(this.findTextbox);
+            this.Controls.Add(this.findLabel);
+            this.Controls.Add(this.fieldsCombobox);
             this.Controls.Add(this.ordersReportButton);
             this.Controls.Add(this.printTicketButton);
             this.Controls.Add(this.hintLabel);
@@ -930,5 +1072,16 @@
         private System.Windows.Forms.Label hintLabel;
         private System.Windows.Forms.Button printTicketButton;
         private System.Windows.Forms.Button ordersReportButton;
+        private System.Windows.Forms.Button resetFilterButton;
+        private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.Label filterInFieldLabel;
+        private System.Windows.Forms.TextBox filterTextbox;
+        private System.Windows.Forms.Label filterLabel;
+        private System.Windows.Forms.ComboBox filterCombobox;
+        private System.Windows.Forms.Button findButton;
+        private System.Windows.Forms.Label inFieldLabel;
+        private System.Windows.Forms.TextBox findTextbox;
+        private System.Windows.Forms.Label findLabel;
+        private System.Windows.Forms.ComboBox fieldsCombobox;
     }
 }

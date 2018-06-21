@@ -65,7 +65,6 @@ namespace boxOffice
         private void submitButton_Click(object sender, EventArgs e)
         {
             OleDbConnection con = staticVariables.con;
-            theatreID = Convert.ToInt32(theatresDataGridView[0, theatresDataGridView.CurrentRow.Index].Value);
             if (submitButton.Text == "Добавить")
             {
                 if(theatreNameTextbox.Text == "" || theatreAdressTextbox.Text == "")
@@ -92,8 +91,9 @@ namespace boxOffice
                 }
                 clearFields();
             }
-            if(submitButton.Text == "Изменить")
+            if (submitButton.Text == "Изменить")
             {
+                theatreID = Convert.ToInt32(theatresDataGridView[0, theatresDataGridView.CurrentRow.Index].Value);
                 int currentRow = theatresDataGridView.CurrentCell.RowIndex;
                 int currentColumn = theatresDataGridView.CurrentCell.ColumnIndex;
                 try

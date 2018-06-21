@@ -43,7 +43,6 @@
             this.loginTextbox.Name = "loginTextbox";
             this.loginTextbox.Size = new System.Drawing.Size(272, 26);
             this.loginTextbox.TabIndex = 0;
-            this.loginTextbox.Text = "nikita.bokarev";
             // 
             // loginLabel
             // 
@@ -73,7 +72,6 @@
             this.passwordTextbox.PasswordChar = '•';
             this.passwordTextbox.Size = new System.Drawing.Size(272, 26);
             this.passwordTextbox.TabIndex = 3;
-            this.passwordTextbox.Text = "1111";
             // 
             // loginButton
             // 

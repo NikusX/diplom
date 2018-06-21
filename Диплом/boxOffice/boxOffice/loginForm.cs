@@ -36,7 +36,7 @@ namespace boxOffice
                     staticVariables.userId = reader.GetInt32(0);
                     staticVariables.userFio = reader.GetString(1);
                     staticVariables.userLogin = reader.GetString(2);
-                    MessageBox.Show("Добро пожаловать, \n" + staticVariables.userFio + "!");
+                    MessageBox.Show("Добро пожаловать, " + staticVariables.userFio + "!");
                     reader.Close();
                     con.Close();
                     loginTextbox.Text = "";

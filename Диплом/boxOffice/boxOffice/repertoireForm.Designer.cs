@@ -228,7 +228,7 @@
             this.repertoirePanel.Controls.Add(this.perfomanceNameTextbox);
             this.repertoirePanel.Controls.Add(this.headerLabel);
             this.repertoirePanel.Controls.Add(this.theatreLabel);
-            this.repertoirePanel.Location = new System.Drawing.Point(9, 10);
+            this.repertoirePanel.Location = new System.Drawing.Point(6, 10);
             this.repertoirePanel.Name = "repertoirePanel";
             this.repertoirePanel.Size = new System.Drawing.Size(986, 601);
             this.repertoirePanel.TabIndex = 2;
@@ -333,16 +333,16 @@
             this.genreOfWorkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.genreOfWorkLabel.Location = new System.Drawing.Point(136, 141);
             this.genreOfWorkLabel.Name = "genreOfWorkLabel";
-            this.genreOfWorkLabel.Size = new System.Drawing.Size(162, 20);
+            this.genreOfWorkLabel.Size = new System.Drawing.Size(49, 20);
             this.genreOfWorkLabel.TabIndex = 10;
-            this.genreOfWorkLabel.Text = "Жанр произведения";
+            this.genreOfWorkLabel.Text = "Жанр";
             // 
             // genreOfWorkTextbox
             // 
             this.genreOfWorkTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genreOfWorkTextbox.Location = new System.Drawing.Point(311, 137);
+            this.genreOfWorkTextbox.Location = new System.Drawing.Point(226, 137);
             this.genreOfWorkTextbox.Name = "genreOfWorkTextbox";
-            this.genreOfWorkTextbox.Size = new System.Drawing.Size(510, 26);
+            this.genreOfWorkTextbox.Size = new System.Drawing.Size(595, 26);
             this.genreOfWorkTextbox.TabIndex = 9;
             // 
             // authorOfWorkLabel
@@ -351,16 +351,16 @@
             this.authorOfWorkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.authorOfWorkLabel.Location = new System.Drawing.Point(136, 108);
             this.authorOfWorkLabel.Name = "authorOfWorkLabel";
-            this.authorOfWorkLabel.Size = new System.Drawing.Size(169, 20);
+            this.authorOfWorkLabel.Size = new System.Drawing.Size(56, 20);
             this.authorOfWorkLabel.TabIndex = 8;
-            this.authorOfWorkLabel.Text = "Автор произведения";
+            this.authorOfWorkLabel.Text = "Автор";
             // 
             // authorOfWorkTextbox
             // 
             this.authorOfWorkTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authorOfWorkTextbox.Location = new System.Drawing.Point(311, 106);
+            this.authorOfWorkTextbox.Location = new System.Drawing.Point(226, 106);
             this.authorOfWorkTextbox.Name = "authorOfWorkTextbox";
-            this.authorOfWorkTextbox.Size = new System.Drawing.Size(510, 26);
+            this.authorOfWorkTextbox.Size = new System.Drawing.Size(595, 26);
             this.authorOfWorkTextbox.TabIndex = 7;
             // 
             // perfomanceNameLabel

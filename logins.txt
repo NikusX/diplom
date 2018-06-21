@@ -1,0 +1,8 @@
+ФИО				Логин			Пароль
+
+Бокарев Никита Александрович	nikita.bokarev		1111
+Сергеев Анатолий Владимирович	anatolii.sergeev	2222
+Антонов Виталий Андреевич	antonov.vitalii		3333
+Пушкарев Роберт Евгеньевич	robert.pushkarev	4444
+Андреев Антон Павлович		anton.pavlovich		5555
+Сергеев Тимофей Владимирович	timofei.vladimirovich	6666

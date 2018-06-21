@@ -34,6 +34,9 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.schedulePanel = new System.Windows.Forms.Panel();
+            this.rubLabel = new System.Windows.Forms.Label();
+            this.ticketCostLabel = new System.Windows.Forms.Label();
+            this.ticketCostTextbox = new System.Windows.Forms.TextBox();
             this.perfomanceEndsLabel = new System.Windows.Forms.Label();
             this.perfomanceEndsDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.perfomanceStartsLabel = new System.Windows.Forms.Label();
@@ -111,6 +114,9 @@
             // 
             // schedulePanel
             // 
+            this.schedulePanel.Controls.Add(this.rubLabel);
+            this.schedulePanel.Controls.Add(this.ticketCostLabel);
+            this.schedulePanel.Controls.Add(this.ticketCostTextbox);
             this.schedulePanel.Controls.Add(this.perfomanceEndsLabel);
             this.schedulePanel.Controls.Add(this.perfomanceEndsDateTimePicker);
             this.schedulePanel.Controls.Add(this.perfomanceStartsLabel);
@@ -129,6 +135,34 @@
             this.schedulePanel.Name = "schedulePanel";
             this.schedulePanel.Size = new System.Drawing.Size(918, 412);
             this.schedulePanel.TabIndex = 7;
+            // 
+            // rubLabel
+            // 
+            this.rubLabel.AutoSize = true;
+            this.rubLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rubLabel.Location = new System.Drawing.Point(400, 223);
+            this.rubLabel.Name = "rubLabel";
+            this.rubLabel.Size = new System.Drawing.Size(38, 20);
+            this.rubLabel.TabIndex = 20;
+            this.rubLabel.Text = "руб.";
+            // 
+            // ticketCostLabel
+            // 
+            this.ticketCostLabel.AutoSize = true;
+            this.ticketCostLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ticketCostLabel.Location = new System.Drawing.Point(135, 223);
+            this.ticketCostLabel.Name = "ticketCostLabel";
+            this.ticketCostLabel.Size = new System.Drawing.Size(107, 20);
+            this.ticketCostLabel.TabIndex = 19;
+            this.ticketCostLabel.Text = "Цена билета";
+            // 
+            // ticketCostTextbox
+            // 
+            this.ticketCostTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ticketCostTextbox.Location = new System.Drawing.Point(283, 220);
+            this.ticketCostTextbox.Name = "ticketCostTextbox";
+            this.ticketCostTextbox.Size = new System.Drawing.Size(102, 26);
+            this.ticketCostTextbox.TabIndex = 18;
             // 
             // perfomanceEndsLabel
             // 
@@ -234,7 +268,7 @@
             // 
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.submitButton.Location = new System.Drawing.Point(458, 236);
+            this.submitButton.Location = new System.Drawing.Point(457, 270);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(139, 57);
             this.submitButton.TabIndex = 7;
@@ -246,7 +280,7 @@
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(150)))));
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(312, 236);
+            this.cancelButton.Location = new System.Drawing.Point(311, 270);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(139, 57);
             this.cancelButton.TabIndex = 6;
@@ -466,5 +500,8 @@
         private System.Windows.Forms.TextBox filterTextbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox filterCombobox;
+        private System.Windows.Forms.Label rubLabel;
+        private System.Windows.Forms.Label ticketCostLabel;
+        private System.Windows.Forms.TextBox ticketCostTextbox;
     }
 }

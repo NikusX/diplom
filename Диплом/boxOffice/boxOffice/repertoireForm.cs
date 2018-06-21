@@ -166,9 +166,7 @@ namespace boxOffice
         private void submitButton_Click(object sender, EventArgs e)
         {
             OleDbConnection con = staticVariables.con;
-            int currentCellColumn = repertoireDataGridView.CurrentCell.ColumnIndex;
-            int currentCellRow = repertoireDataGridView.CurrentCell.RowIndex;
-            int perfomanceID = Convert.ToInt32(repertoireDataGridView[0, repertoireDataGridView.CurrentRow.Index].Value);
+            
             getTheatreID();
             if (submitButton.Text == "Добавить")
             {
@@ -207,8 +205,14 @@ namespace boxOffice
                     con.Close();
                 }
             }
+            int currentCellColumn = 0;
+            int currentCellRow = 0;
+            int perfomanceID = 0;
             if(submitButton.Text == "Изменить")
             {
+                currentCellColumn = repertoireDataGridView.CurrentCell.ColumnIndex;
+                currentCellRow = repertoireDataGridView.CurrentCell.RowIndex;
+                perfomanceID = Convert.ToInt32(repertoireDataGridView[0, repertoireDataGridView.CurrentRow.Index].Value);
                 try
                 {
                     OleDbCommand cmd = new OleDbCommand("update Репертуар set [id театра]=@theatreid, [Название спектакля]=@perfomancename, [Автор произведения]=@author, " +
